@@ -1,7 +1,7 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.5
+version: 1.6
 updated: 2026-10-13
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
@@ -60,7 +60,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Token | Name | Type / angle | Stops (HEX, position) | Use for |
 |---|---|---|---|---|
-| `gradient-neo` | `Neo Gradient` | Linear, 88° | #3A6BFF 1.41% → #00C2FF 98.44% | Restricted — do not use until usage is defined |
+| `gradient-neo` | `Neo Gradient` | Linear, 88° | #3A6BFF 1.41% → #00C2FF 98.44% | Restricted — only in the white logo; otherwise do not use until usage is defined |
 
 <!-- TBD: `00 - Fundamentals/Dark` #1A1A1A (26 26 26) есть в Figma рядом с `Core/Dark`.
      Подтвердить, нужен ли он, или это остаток старой системы. До решения не использовать. -->
@@ -124,7 +124,7 @@ role: Single source of truth. All asset files inherit from this file.
 - **Approved text/background pairs — blue:**
   - `white` on `primary` (~5.6:1)
 - **Surface (MUST):** text on `surface` MUST be `text-high` only.
-- **Gradient (MUST NOT):** `gradient-neo` is restricted — MUST NOT be used in any material until its usage is defined.
+- **Gradient (MUST NOT):** `gradient-neo` is restricted — MUST NOT be used in any material until its usage is defined. Exception: the mark of the white logo.
 - **Neo Blue (MUST):** `primary-variant` MUST be used only on `bg-dark` — never on light backgrounds and never as a fill under text. On light backgrounds use `primary`.
 - **Disabled (MUST):** `text-low` (~3.1:1 on `white`) and `text-inverse-low` (~3.1:1 on `bg-dark`) MUST be used only for disabled states, never for active text.
 - **Tag text (MUST):** text on accent tags MUST use the color from the «Text on tag» column in 3.4 (all ≥ 4.5:1).
@@ -148,7 +148,8 @@ role: Single source of truth. All asset files inherit from this file.
 | Version | File | Use on |
 |---|---|---|
 | Full color | [`assets/logo/niwart-logo-color.svg`](assets/logo/niwart-logo-color.svg) | `white`, `bg-subtle` |
-| White | [`assets/logo/niwart-logo-white.svg`](assets/logo/niwart-logo-white.svg) | `primary`, `bg-dark` |
+| White | [`assets/logo/niwart-logo-white.svg`](assets/logo/niwart-logo-white.svg) | `bg-dark` |
+| Full white | [`assets/logo/niwart-logo-full-white.svg`](assets/logo/niwart-logo-full-white.svg) | `primary` |
 
 - **Clear space:** TBD
 - **Minimum size:** TBD
@@ -167,3 +168,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.3 — 2026-10-13 — Neutrals renamed to plain names; text colors moved to 3.3; added `text-inverse-*` for dark backgrounds (values TBD).
 - 1.4 — 2026-10-13 — Typography reduced to font families; type roles, rules and fallbacks moved to `ui-kit.md`.
 - 1.5 — 2026-10-13 — Sections Spacing, Imagery, Iconography removed; `surface` limited to tags (`text-high` only); `text-low` / `text-inverse-low` set to disabled only; contrast rules in 3.5 recalculated and split by background; `primary-variant` limited to `bg-dark`; `gradient-neo` added as restricted; `font-heading` set to 500 Medium; added `font-accent` and text highlight rule; accents moved from data series to tags; data series rule removed; text colors for accent tags defined; multi-accent rules added to section 2; stale token references fixed.
+- 1.6 — 2026-10-13 — Logo files linked; white logo (gradient mark) limited to `bg-dark`; added full white logo for `primary`; `gradient-neo` allowed in the white logo mark.
