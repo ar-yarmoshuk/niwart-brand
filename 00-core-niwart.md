@@ -158,7 +158,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| `ui-kit.md` | UI kit: typography (scale, roles, web fallback) | draft |
+| `ui-kit.md` | UI kit: typography (scale, roles, web fallback) | planned |
 
 ## 7. Changelog
 
