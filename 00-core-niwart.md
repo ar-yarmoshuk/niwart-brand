@@ -147,8 +147,8 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Version | File | Use on |
 |---|---|---|
-| Full color | TBD | `white`, `bg-subtle` |
-| White | TBD | `primary`, `bg-dark` |
+| Full color | [`assets/logo/niwart-logo-color.svg`](assets/logo/niwart-logo-color.svg) | `white`, `bg-subtle` |
+| White | [`assets/logo/niwart-logo-white.svg`](assets/logo/niwart-logo-white.svg) | `primary`, `bg-dark` |
 
 - **Clear space:** TBD
 - **Minimum size:** TBD
