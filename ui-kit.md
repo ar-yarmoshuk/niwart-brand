@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.9
+version: 0.10
 updated: 2026-10-14
 owner: Arty
 inherits: 00-core-niwart.md
@@ -15,7 +15,7 @@ source: Figma — Branding library (text styles, grid styles)
 <!-- Файл ассета. Наследует всё из 00-core-niwart.md.
      Цвета и шрифты — только ссылки на токены core по имени. Здесь живут размеры, роли, сетка и компоненты UI.
      Размеры кегля и сетка взяты из Figma (библиотека Branding). Веса — из core, а не из Figma:
-     в Figma есть стили Bold и ExtraLight Italic, но core разрешает только 400, 500 и 500 italic.
+     в Figma есть стили Bold и ExtraLight Italic, но core разрешает только 400, 500 и 300 italic.
      Всё, что помечено TBD, в Figma не найдено — заполнить вручную. -->
 
 ## 1. Typography
@@ -26,10 +26,10 @@ source: Figma — Branding library (text styles, grid styles)
 |---|---|---|---|
 | `font-heading` | Plus Jakarta Sans | 500 | `"Plus Jakarta Sans", Arial, sans-serif` |
 | `font-body` | Plus Jakarta Sans | 400 | `"Plus Jakarta Sans", Arial, sans-serif` |
-| `font-accent` | Plus Jakarta Sans | 500 italic | `"Plus Jakarta Sans", Arial, sans-serif` |
+| `font-accent` | Plus Jakarta Sans | 300 italic | `"Plus Jakarta Sans", Arial, sans-serif` |
 
-- **Loading (MUST):** load from Google Fonts only 400, 500, 500 italic and 700 (700 — for `eyebrow` only).
-- **Fallback:** Arial — Regular for 400, Bold for 500, Italic for 500 italic, Bold for 700.
+- **Loading (MUST):** load from Google Fonts only 400, 500, 300 italic and 700 (700 — for `eyebrow` only).
+- **Fallback:** Arial — Regular for 400, Bold for 500, Italic for 300 italic, Bold for 700.
 - **Units:** sizes are given in px; rem = px / 16.
 
 ### 1.2 Type roles
@@ -75,7 +75,7 @@ source: Figma — Branding library (text styles, grid styles)
 
 <!-- В Figma label-стили называются Bold; по core `font-heading` = 500, поэтому лейблы используют 500. -->
 <!-- В Figma есть стили `Title/*/ExtraLight Italic` (H1–H3) — это старые выделения.
-     По core выделение = `font-accent` (500 italic) + `primary`, поэтому отдельные стили не нужны.
+     По core выделение = `font-accent` (300 Light Italic) + `primary` (на `bg-dark` — `gradient-neo`), поэтому отдельные стили не нужны.
      `Title/Mobile/H1/ExtraLight Italic` в Figma имеет 48 / 64 px, больше мобильного H1 — похоже на ошибку. -->
 
 ### 1.3 Text colors by role
@@ -94,7 +94,8 @@ source: Figma — Branding library (text styles, grid styles)
 - MUST NOT skip heading levels for visual size; pick the role, not the size.
 - MUST NOT center-align body text longer than 2 lines. Left-align by default.
 - SHOULD keep line length of `body-l` within 60–80 characters.
-- Text highlights follow core section 4: `font-accent` + `primary` (on `bg-dark` — `primary-variant`), at the size of the surrounding role.
+- Text highlights follow core section 4: `font-accent` + `primary` (on `bg-dark` — `font-accent` + `gradient-neo`), at the size of the surrounding role.
+- **Gradient text:** `background: <gradient-neo>; -webkit-background-clip: text; background-clip: text; color: transparent`. The gradient spans the highlighted words, not the whole line.
 - Numbers in tables SHOULD use tabular figures (`font-variant-numeric: tabular-nums`).
 
 ## 2. Layout grid
@@ -157,24 +158,24 @@ source: Figma — Branding library (text styles, grid styles)
 | Ghost | `white`, `bg-subtle` | none | — | `primary` |
 | Primary on dark | `bg-dark` | none | 1.5 px `gradient-neo` | `white` |
 | Secondary on dark | `bg-dark` | none | 1.5 px `text-inverse-low` | `text-inverse-high` |
-| Ghost on dark | `bg-dark` | none | — | `primary-variant` |
-| Inverse | `primary`, `bg-dark` | `white` | — | `text-high` |
+| Ghost on dark | `bg-dark` | none | — | `gradient-neo` |
+| Inverse | `primary` | `white` | — | `text-high` |
 
 **States**
 
 | State | Primary, Secondary, Secondary on dark | Ghost | Ghost on dark | Primary on dark | Inverse |
 |---|---|---|---|---|---|
-| Hover | fill `primary`, border `primary`, text `white` | fill `bg-subtle` on `white`, fill `white` on `bg-subtle`; text unchanged | label underlined, colors unchanged | fill `gradient-neo`, text `white` | fill `bg-subtle` |
+| Hover | fill `primary`, border `primary`, text `white` | fill `bg-subtle` on `white`, fill `white` on `bg-subtle`; text unchanged | fill `white-10`, text unchanged | fill `gradient-neo`, text `white` | fill `bg-subtle` |
 | Pressed | as hover + scale 0.98 | as hover + scale 0.98 | as hover + scale 0.98 | as hover + scale 0.98 | fill `surface-pressed` + scale 0.98 |
-| Focus (keyboard) | default + ring 2 px, offset 2 px: `primary` on light, `primary-variant` on dark | ring `primary` | ring `primary-variant` | ring `primary-variant` | ring `white` on `primary`, `primary-variant` on `bg-dark` |
-| Disabled | no fill, border 1.5 px + text: `surface-pressed` / `text-low` on light, `text-inverse-low` on dark | text `text-low` | text `text-inverse-low` | border and text `text-inverse-low` | no fill, border 1.5 px and text: `surface-pressed` on `primary`, `text-inverse-low` on `bg-dark` |
+| Focus (keyboard) | default + ring 2 px, offset 2 px: `primary` on light, `primary-variant` on dark | ring `primary` | ring `primary-variant` | ring `primary-variant` | ring `white` |
+| Disabled | no fill, border 1.5 px + text: `surface-pressed` / `text-low` on light, `text-inverse-low` on dark | text `text-low` | text `text-inverse-low` | border and text `text-inverse-low` | no fill, border 1.5 px and text `surface-pressed` |
 
 - **Motion:** 120 ms, `cubic-bezier(.2, 0, 0, 1)` for fill, border and scale. With `prefers-reduced-motion: reduce` — no transition, no scale.
 - **Focus (MUST):** show the ring on keyboard focus only (`:focus-visible`), never remove it.
 - **Disabled (MUST):** no hover, pressed or focus; cursor `not-allowed`.
 - **Hierarchy (SHOULD):** one Primary (or Primary on dark / Inverse) per section; Secondary and Ghost for the rest.
-- **Gradient:** `gradient-neo` is allowed only in the Primary on dark button: as the border (default) and as the fill (hover, pressed) (core 3.5).
-- **Contrast exception:** `white` text and icon on `gradient-neo` in hover and pressed are exempt from the contrast rule (core 3.5).
+- **Gradient:** `gradient-neo` is allowed only on `bg-dark`: Primary on dark border (default) and fill (hover, pressed); Ghost on dark text; icon button states below (core 3.5).
+- **Contrast exceptions (core 3.5):** `white` text and icon on `gradient-neo` in hover and pressed; Ghost on dark `gradient-neo` text on `white-10` in hover and pressed (≈ 3.7:1 at the start).
 
 **Icon button**
 
@@ -185,7 +186,10 @@ Circular button with one icon and no label.
 | Shape | Circle |
 | Size — `sm` / `lg` | 40 × 40 px / 52 × 52 px |
 | Icon | 20 × 20 px, centered |
-| Variants and states | Same as the text button: each icon button variant inherits fill, border, icon color and all states from the button variant of the same name (Primary, Secondary, Ghost, Primary on dark, Secondary on dark, Ghost on dark, Inverse). Ghost on dark hover: fill `primary`, icon `white` (no label to underline). |
+| Variants and states | Same as the text button: each icon button variant inherits fill, border, icon color and all states from the button variant of the same name (Primary, Secondary, Ghost, Primary on dark, Secondary on dark, Ghost on dark, Inverse). Exceptions below. |
+| Secondary on dark — hover, pressed | fill `gradient-neo`, border none, icon `white` |
+| Ghost on dark — default | icon `white` |
+| Ghost on dark — hover, pressed | fill `white-10`, icon `gradient-neo` |
 
 - **Accessible name (MUST):** every icon button has a text label for screen readers (`aria-label`) and a tooltip with the same text.
 
@@ -200,6 +204,7 @@ Circular button with one icon and no label.
 
 ## 5. Changelog
 
+- 0.10 — 2026-10-14 — `font-accent` 300 Light Italic; highlights on `bg-dark` use `gradient-neo` (gradient text); Ghost on dark: `gradient-neo` text, hover fill `white-10` instead of underline; icon button: Secondary on dark hover fill `gradient-neo`, Ghost on dark icon `white` and hover fill `white-10` with `gradient-neo` icon; Inverse limited to `primary` backgrounds.
 - 0.9 — 2026-10-14 — Ghost hover on light backgrounds: fill swaps to the other light background (`bg-subtle` on `white`, `white` on `bg-subtle`); Ghost on dark keeps the underline. Review: label roles no longer mention buttons (buttons use `font-body` 14 / 20); Inverse disabled on `bg-dark` uses `text-inverse-low`.
 - 0.8 — 2026-10-14 — Buttons: added Ghost, Ghost on dark, Secondary on dark, Inverse and Icon button; arrow made optional; full width allowed on mobile; hierarchy rule added.
 - 0.7 — 2026-10-14 — Button states added: hover (`primary` fill; `gradient-neo` fill on dark), pressed (as hover + scale 0.98), focus ring, disabled; motion 120 ms with reduced-motion fallback.

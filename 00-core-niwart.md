@@ -1,7 +1,7 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.11
+version: 1.12
 updated: 2026-10-14
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
@@ -51,7 +51,7 @@ role: Single source of truth. All asset files inherit from this file.
 | Token | Name | HEX | RGB | Use for |
 |---|---|---|---|---|
 | `primary` | `Niwart Blue` | #1953FF | 25 83 255 | Main brand color: key shapes, text highlights, secondary button border, ghost button text, button hover and pressed fill, focus ring on light backgrounds |
-| `primary-variant` | `Niwart Neo Blue` | #3A6BFF | 58 107 255 | Blue on dark backgrounds (`bg-dark`) only: text highlights, shapes, icons, ghost button text, focus ring |
+| `primary-variant` | `Niwart Neo Blue` | #3A6BFF | 58 107 255 | Blue on dark backgrounds (`bg-dark`) only: shapes, icons, eyebrow text, focus ring |
 
 **Gradient**
 
@@ -60,7 +60,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Token | Name | Type / angle | Stops (HEX, position) | Use for |
 |---|---|---|---|---|
-| `gradient-neo` | `Neo Gradient` | Linear, 88° | #3A6BFF 1.41% → #00C2FF 98.44% | Restricted — only in the white logo mark and in the button on `bg-dark` (border; fill on hover and pressed) |
+| `gradient-neo` | `Neo Gradient` | Linear, 88° | #3A6BFF 1.41% → #00C2FF 98.44% | Restricted — only on `bg-dark`: white logo mark, text highlights, buttons (see 3.5) |
 
 <!-- TBD: `00 - Fundamentals/Dark` #1A1A1A (26 26 26) есть в Figma рядом с `Core/Dark`.
      Подтвердить, нужен ли он, или это остаток старой системы. До решения не использовать. -->
@@ -74,6 +74,7 @@ role: Single source of truth. All asset files inherit from this file.
 | `bg-dark` | Dark Background | #05070D | 5 7 13 | Dark alternate background: sections; primary button fill on `white` / `bg-subtle` |
 | `surface` | Surface Default | #E7EAF0 | 231 234 240 | Tags |
 | `surface-pressed` | Surface Pressed | #D1D5E2 | 209 213 226 | Outlines, pressed state |
+| `white-10` | White 10% | #FFFFFF, opacity 10% | 255 255 255 / 0.10 | Hover fill of ghost buttons on `bg-dark` (≈ #1E2025 on `bg-dark`) |
 
 <!-- `Greys/Surface/Hover` в Figma = #E7EAF0, то же, что Default. Отдельный токен не заводим. -->
 
@@ -112,7 +113,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 ### 3.5 Color rules
 
-- **Contrast (MUST):** text vs background ≥ 4.5:1 (≥ 3:1 for text ≥ 24 px / 18 pt). Disabled text is exempt. Exception: `white` text and icons on `gradient-neo` in button hover and pressed states (≈ 4.4:1 at the start, ≈ 2.1:1 at the end).
+- **Contrast (MUST):** text vs background ≥ 4.5:1 (≥ 3:1 for text ≥ 24 px / 18 pt). Disabled text is exempt. Exceptions: `white` text and icons on `gradient-neo` in button hover and pressed states (≈ 4.4:1 at the start, ≈ 2.1:1 at the end); `gradient-neo` text on `white-10` in ghost button hover and pressed states (≈ 3.7:1 at the start).
 - **Approved text/background pairs — light:**
   - `text-high` on `white` / `bg-subtle` / `surface` (~20.1:1 / ~18.8:1 / ~16.7:1)
   - `text-medium` on `white` / `bg-subtle` (~12.3:1 / ~11.4:1)
@@ -124,7 +125,7 @@ role: Single source of truth. All asset files inherit from this file.
 - **Approved text/background pairs — blue:**
   - `white` on `primary` (~5.6:1)
 - **Surface (MUST):** text on `surface` MUST be `text-high` only.
-- **Gradient (MUST NOT):** `gradient-neo` is restricted — MUST NOT be used anywhere else. Exceptions: the mark of the white logo; the button on `bg-dark` — border, and fill on hover and pressed (see `ui-kit.md`).
+- **Gradient (MUST NOT):** `gradient-neo` is restricted — MUST NOT be used anywhere else. Exceptions, all on `bg-dark` only: the mark of the white logo; text highlights (section 4); in buttons (see `ui-kit.md`) — the Primary on dark border, its hover and pressed fill, the Secondary on dark icon button hover and pressed fill, Ghost on dark text and Ghost on dark icon button hover icon. Gradient text and icons: ≈ 4.5:1 at the start, ≈ 9.7:1 at the end on `bg-dark`.
 - **Neo Blue (MUST):** `primary-variant` MUST be used only on `bg-dark` — never on light backgrounds and never as a fill under text. On light backgrounds use `primary`.
 - **Disabled (MUST):** `text-low` (~3.1:1 on `white`) and `text-inverse-low` (~3.1:1 on `bg-dark`) MUST be used only for disabled states, never for active text. Exception: `text-inverse-low` as the border of the secondary button on `bg-dark`.
 - **Tag text (MUST):** text on accent tags MUST use the color from the «Text on tag» column in 3.4 (all ≥ 4.5:1).
@@ -136,9 +137,9 @@ role: Single source of truth. All asset files inherit from this file.
 |---|---|---|---|
 | `font-heading` | Plus Jakarta Sans | 500 Medium | Headlines, labels, big numbers |
 | `font-body` | Plus Jakarta Sans | 400 Regular | Body text, captions |
-| `font-accent` | Plus Jakarta Sans | 500 Medium Italic | Text highlights |
+| `font-accent` | Plus Jakarta Sans | 300 Light Italic | Text highlights |
 
-- **Text highlights (MUST):** highlighted words MUST combine `font-accent` and `primary`; on `bg-dark` — `font-accent` and `primary-variant`. Neither is used alone for a highlight.
+- **Text highlights (MUST):** highlighted words MUST combine `font-accent` and `primary`; on `bg-dark` — `font-accent` and `gradient-neo` (gradient applied to the text). Neither is used alone for a highlight.
 - **Font source:** Google Fonts (license: SIL Open Font License — verify before distribution).
 - Add other weights only if confirmed in Figma.
 - Type scale, type roles, line heights and fallbacks are defined in each asset file (see section 6).
@@ -158,7 +159,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons | draft (0.9) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons | draft (0.10) |
 
 ## 7. Changelog
 
@@ -174,3 +175,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.9 — 2026-10-14 — `primary` used for button hover/pressed fill and focus ring; `primary-variant` for focus ring on `bg-dark`; `gradient-neo` allowed as button fill on hover/pressed on `bg-dark`, with a contrast exception for `white` text and icons.
 - 1.10 — 2026-10-14 — Button roles added: `primary` / `primary-variant` for ghost button text, `white` for inverse button fill, `bg-subtle` for inverse hover, `text-inverse-low` allowed as secondary button border on `bg-dark`.
 - 1.11 — 2026-10-14 — `white` and `bg-subtle` used as ghost button hover fill (each on the other background).
+- 1.12 — 2026-10-14 — `font-accent` changed to 300 Light Italic; text highlights on `bg-dark` use `gradient-neo` instead of `primary-variant`; `gradient-neo` allowed for ghost button text and icon button states on `bg-dark`; added `white-10` (white at 10%) for ghost hover on `bg-dark`; contrast exception for gradient text on `white-10`.
