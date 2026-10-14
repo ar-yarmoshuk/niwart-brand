@@ -1,7 +1,7 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.17
+version: 1.18
 updated: 2026-10-14
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
@@ -50,7 +50,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Token | Name | HEX | RGB | Use for |
 |---|---|---|---|---|
-| `primary` | `Niwart Blue` | #1953FF | 25 83 255 | Main brand color: key shapes, text highlights, secondary button border, ghost button text, button hover and pressed fill, focus ring on light backgrounds |
+| `primary` | `Niwart Blue` | #1953FF | 25 83 255 | Main brand color: key shapes, text highlights, secondary button border, ghost button text, button hover and pressed fill, focus ring on light backgrounds, input success marker |
 | `primary-variant` | `Niwart Neo Blue` | #3A6BFF | 58 107 255 | Blue on dark backgrounds (`bg-dark`) only: shapes, icons, eyebrow text, focus ring |
 
 **Gradient**
@@ -159,7 +159,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.17) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.19) |
 
 ## 7. Changelog
 
@@ -181,3 +181,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.15 — 2026-10-14 — Input roles: `surface-pressed` for the input underline on light backgrounds; `text-low` / `text-inverse-low` allowed as input placeholder; `text-inverse-low` for the input underline on `bg-dark`.
 - 1.16 — 2026-10-14 — Input underline on light backgrounds moved from `surface-pressed` to `bg-subtle`.
 - 1.17 — 2026-10-14 — Input underline on light backgrounds moved from `bg-subtle` to `text-low`.
+- 1.18 — 2026-10-14 — `primary` used for the input success marker.

@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.17
+version: 0.19
 updated: 2026-10-14
 owner: Arty
 inherits: 00-core-niwart.md
@@ -52,14 +52,14 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 |---|---|---|---|
 | `body-l` | `Paragraph/L` | 16 / 28 px | Default body text |
 | `body-m` | `Paragraph/M` | 14 / 24 px | Secondary text, dense layouts |
-| `caption` | `Paragraph/S (caption)` | 12 / 20 px | Captions, footnotes, meta |
+| `caption` | `Paragraph/S (caption)` | 12 / 20 px | Captions, footnotes, meta, input labels, helper text |
 
 **Labels** — `font-heading`, letter spacing 0, same on desktop and mobile
 
 | Role | Figma style | Size / line height | Use for |
 |---|---|---|---|
 | `label-l` | `Label/L/Bold` | 18 / 24 px | Navigation |
-| `label-m` | `Label/M/Bold` | 16 / 20 px | Form labels |
+| `label-m` | `Label/M/Bold` | 16 / 20 px | UI labels |
 | `label-s` | `Label/S/Bold` | 14 / 18 px | Tags |
 
 **Eyebrow** — short uppercase label above a heading; same on desktop and mobile
@@ -205,7 +205,7 @@ Circular button with one icon and no label.
 |---|---|
 | Style | Underline only, no fill, no border box |
 | Width | Fluid (Figma: 290 px) |
-| Label | `label-m` (`font-heading` 16 / 20 px), 8 px above the value |
+| Label | `caption` (`font-body` 400, 12 / 20 px), 8 px above the value |
 | Field height | 28 px: text 20 px + gap 8 px + underline |
 | Text | `font-body` 400, 16 / 20 px |
 | Placeholder | Example of the expected input, e.g. «Full Name»; disappears while typing. MUST NOT replace the label |
@@ -231,10 +231,10 @@ Circular button with one icon and no label.
 | Hover | `text-high` | `text-inverse-high` | empty circle |
 | Active (focus) | `primary` | `primary-variant` | empty circle |
 | Error | `accent-red` | `accent-red` | fill `accent-red`, «!» icon `text-high` + error message below |
-| Success | as default | as default | fill `accent-green`, check icon `text-high` |
+| Success | as default | as default | fill `primary`, check icon `white` |
 | Disabled | `text-low` | `text-inverse-low` | hidden |
 
-- **Marker** is a separate component (`.input--marker`) with three states: default (empty), valid (check), error («!»). Icon colors follow core 3.4 «Text on tag».
+- **Marker** is a separate component (`.input--marker`) with three states: default (empty), valid (check), error («!»). Error icon color follows core 3.4 «Text on tag»; success uses `primary` with a `white` icon (core 3.5: `white` on `primary` ≈ 5.6:1).
 - **Active** is shown both on click and on keyboard focus; the `primary` / `primary-variant` underline is the focus indicator.
 - **Error (MUST):** the signal is the red underline and marker; the message text stays `text-high` / `text-inverse-high` (core 3.5: no accents as running text).
 - **Disabled (MUST):** label, value, placeholder and helper text in `text-low` (on `bg-dark` — `text-inverse-low`); no hover, focus or marker; cursor `not-allowed`.
@@ -250,6 +250,8 @@ Circular button with one icon and no label.
 
 ## 5. Changelog
 
+- 0.19 — 2026-10-14 — Inputs: success marker fill `primary` with `white` check icon (was `accent-green`).
+- 0.18 — 2026-10-14 — Inputs: label role changed from `label-m` to `caption`.
 - 0.17 — 2026-10-14 — Inputs: default and disabled underline on light backgrounds changed to `text-low`.
 - 0.16 — 2026-10-14 — Inputs: default and disabled underline on light backgrounds changed to `bg-subtle`.
 - 0.15 — 2026-10-14 — Inputs: disabled state and helper text added; open questions closed.
