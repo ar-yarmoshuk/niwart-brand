@@ -1,7 +1,7 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.13
+version: 1.14
 updated: 2026-10-14
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
@@ -74,7 +74,7 @@ role: Single source of truth. All asset files inherit from this file.
 | `bg-dark` | Dark Background | #05070D | 5 7 13 | Dark alternate background: sections; primary button fill on `white` / `bg-subtle` |
 | `surface` | Surface Default | #E7EAF0 | 231 234 240 | Tags |
 | `surface-pressed` | Surface Pressed | #D1D5E2 | 209 213 226 | Outlines, pressed state |
-| `white-10` | White 10% | #FFFFFF, opacity 10% | 255 255 255 / 0.10 | Hover fill of ghost buttons on `bg-dark` (≈ #1E2025 on `bg-dark`) |
+| `white-5` | White 5% | #FFFFFF, opacity 5% | 255 255 255 / 0.05 | Hover fill of ghost buttons on `bg-dark` (≈ #121319 on `bg-dark`) |
 
 <!-- `Greys/Surface/Hover` в Figma = #E7EAF0, то же, что Default. Отдельный токен не заводим. -->
 
@@ -113,7 +113,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 ### 3.5 Color rules
 
-- **Contrast (MUST):** text vs background ≥ 4.5:1 (≥ 3:1 for text ≥ 24 px / 18 pt). Disabled text is exempt. Exceptions: `white` text and icons on `gradient-neo` in button hover and pressed states (≈ 4.4:1 at the start, ≈ 2.1:1 at the end); `gradient-neo` text on `white-10` in ghost button hover and pressed states (≈ 3.7:1 at the start).
+- **Contrast (MUST):** text vs background ≥ 4.5:1 (≥ 3:1 for text ≥ 24 px / 18 pt). Disabled text is exempt. Exceptions: `white` text and icons on `gradient-neo` in button hover and pressed states (≈ 4.4:1 at the start, ≈ 2.1:1 at the end); `gradient-neo` text on `white-5` in ghost button hover and pressed states (≈ 4.2:1 at the start).
 - **Approved text/background pairs — light:**
   - `text-high` on `white` / `bg-subtle` / `surface` (~20.1:1 / ~18.8:1 / ~16.7:1)
   - `text-medium` on `white` / `bg-subtle` (~12.3:1 / ~11.4:1)
@@ -159,7 +159,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons | draft (0.11) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons | draft (0.12) |
 
 ## 7. Changelog
 
@@ -177,3 +177,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.11 — 2026-10-14 — `white` and `bg-subtle` used as ghost button hover fill (each on the other background).
 - 1.12 — 2026-10-14 — `font-accent` changed to 300 Light Italic; text highlights on `bg-dark` use `gradient-neo` instead of `primary-variant`; `gradient-neo` allowed for ghost button text and icon button states on `bg-dark`; added `white-10` (white at 10%) for ghost hover on `bg-dark`; contrast exception for gradient text on `white-10`.
 - 1.13 — 2026-10-14 — `gradient-neo` in Secondary on dark changed from icon button hover fill to hover and pressed border (button and icon button).
+- 1.14 — 2026-10-14 — `white-10` replaced with `white-5` (white at 5%) for ghost hover on `bg-dark`; contrast exception updated (≈ 4.2:1).
