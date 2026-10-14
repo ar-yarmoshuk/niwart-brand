@@ -1,8 +1,8 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.6
-updated: 2026-10-13
+version: 1.11
+updated: 2026-10-14
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
 role: Single source of truth. All asset files inherit from this file.
@@ -50,8 +50,8 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Token | Name | HEX | RGB | Use for |
 |---|---|---|---|---|
-| `primary` | `Niwart Blue` | #1953FF | 25 83 255 | Main brand color: key shapes, buttons, text highlights |
-| `primary-variant` | `Niwart Neo Blue` | #3A6BFF | 58 107 255 | Blue on dark backgrounds (`bg-dark`) only: text highlights, shapes, icons |
+| `primary` | `Niwart Blue` | #1953FF | 25 83 255 | Main brand color: key shapes, text highlights, secondary button border, ghost button text, button hover and pressed fill, focus ring on light backgrounds |
+| `primary-variant` | `Niwart Neo Blue` | #3A6BFF | 58 107 255 | Blue on dark backgrounds (`bg-dark`) only: text highlights, shapes, icons, ghost button text, focus ring |
 
 **Gradient**
 
@@ -60,7 +60,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Token | Name | Type / angle | Stops (HEX, position) | Use for |
 |---|---|---|---|---|
-| `gradient-neo` | `Neo Gradient` | Linear, 88° | #3A6BFF 1.41% → #00C2FF 98.44% | Restricted — only in the white logo; otherwise do not use until usage is defined |
+| `gradient-neo` | `Neo Gradient` | Linear, 88° | #3A6BFF 1.41% → #00C2FF 98.44% | Restricted — only in the white logo mark and in the button on `bg-dark` (border; fill on hover and pressed) |
 
 <!-- TBD: `00 - Fundamentals/Dark` #1A1A1A (26 26 26) есть в Figma рядом с `Core/Dark`.
      Подтвердить, нужен ли он, или это остаток старой системы. До решения не использовать. -->
@@ -69,9 +69,9 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Token | Name | HEX | RGB | Use for |
 |---|---|---|---|---|
-| `white` | White | #FFFFFF | 255 255 255 | Main background, cards on `bg-subtle`, text on `primary` |
-| `bg-subtle` | Subtle Background | #F5F7FC | 245 247 252 | Light alternate background: sections, slide and page backgrounds, cards on `white` |
-| `bg-dark` | Dark Background | #05070D | 5 7 13 | Dark alternate background: sections |
+| `white` | White | #FFFFFF | 255 255 255 | Main background, cards on `bg-subtle`, text on `primary`, inverse button fill, ghost button hover fill on `bg-subtle` |
+| `bg-subtle` | Subtle Background | #F5F7FC | 245 247 252 | Light alternate background: sections, slide and page backgrounds, cards on `white`, inverse button hover fill, ghost button hover fill on `white` |
+| `bg-dark` | Dark Background | #05070D | 5 7 13 | Dark alternate background: sections; primary button fill on `white` / `bg-subtle` |
 | `surface` | Surface Default | #E7EAF0 | 231 234 240 | Tags |
 | `surface-pressed` | Surface Pressed | #D1D5E2 | 209 213 226 | Outlines, pressed state |
 
@@ -93,7 +93,7 @@ role: Single source of truth. All asset files inherit from this file.
 |---|---|---|---|---|
 | `text-inverse-high` | Text Inverse High | #FFFFFF | 255 255 255 | Headlines |
 | `text-inverse-medium` | Text Inverse Medium | #A3ABC2 | 163 171 194 | Body text |
-| `text-inverse-low` | Text Inverse Low | #565E76 | 86 94 118 | Disabled state only (see 3.5) |
+| `text-inverse-low` | Text Inverse Low | #565E76 | 86 94 118 | Disabled state (see 3.5); border of secondary button on `bg-dark` (~3.1:1) |
 
 ### 3.4 Accents
 
@@ -112,7 +112,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 ### 3.5 Color rules
 
-- **Contrast (MUST):** text vs background ≥ 4.5:1 (≥ 3:1 for text ≥ 24 px / 18 pt). Disabled text is exempt.
+- **Contrast (MUST):** text vs background ≥ 4.5:1 (≥ 3:1 for text ≥ 24 px / 18 pt). Disabled text is exempt. Exception: `white` text and icons on `gradient-neo` in button hover and pressed states (≈ 4.4:1 at the start, ≈ 2.1:1 at the end).
 - **Approved text/background pairs — light:**
   - `text-high` on `white` / `bg-subtle` / `surface` (~20.1:1 / ~18.8:1 / ~16.7:1)
   - `text-medium` on `white` / `bg-subtle` (~12.3:1 / ~11.4:1)
@@ -124,9 +124,9 @@ role: Single source of truth. All asset files inherit from this file.
 - **Approved text/background pairs — blue:**
   - `white` on `primary` (~5.6:1)
 - **Surface (MUST):** text on `surface` MUST be `text-high` only.
-- **Gradient (MUST NOT):** `gradient-neo` is restricted — MUST NOT be used in any material until its usage is defined. Exception: the mark of the white logo.
+- **Gradient (MUST NOT):** `gradient-neo` is restricted — MUST NOT be used anywhere else. Exceptions: the mark of the white logo; the button on `bg-dark` — border, and fill on hover and pressed (see `ui-kit.md`).
 - **Neo Blue (MUST):** `primary-variant` MUST be used only on `bg-dark` — never on light backgrounds and never as a fill under text. On light backgrounds use `primary`.
-- **Disabled (MUST):** `text-low` (~3.1:1 on `white`) and `text-inverse-low` (~3.1:1 on `bg-dark`) MUST be used only for disabled states, never for active text.
+- **Disabled (MUST):** `text-low` (~3.1:1 on `white`) and `text-inverse-low` (~3.1:1 on `bg-dark`) MUST be used only for disabled states, never for active text. Exception: `text-inverse-low` as the border of the secondary button on `bg-dark`.
 - **Tag text (MUST):** text on accent tags MUST use the color from the «Text on tag» column in 3.4 (all ≥ 4.5:1).
 - **Accents as text (MUST NOT):** accents are for fills, icons and tags, not for running text.
 
@@ -158,7 +158,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| `ui-kit.md` | UI kit: typography (scale, roles, web fallback) | planned |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons | draft (0.9) |
 
 ## 7. Changelog
 
@@ -169,3 +169,8 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.4 — 2026-10-13 — Typography reduced to font families; type roles, rules and fallbacks moved to `ui-kit.md`.
 - 1.5 — 2026-10-13 — Sections Spacing, Imagery, Iconography removed; `surface` limited to tags (`text-high` only); `text-low` / `text-inverse-low` set to disabled only; contrast rules in 3.5 recalculated and split by background; `primary-variant` limited to `bg-dark`; `gradient-neo` added as restricted; `font-heading` set to 500 Medium; added `font-accent` and text highlight rule; accents moved from data series to tags; data series rule removed; text colors for accent tags defined; multi-accent rules added to section 2; stale token references fixed.
 - 1.6 — 2026-10-13 — Logo files linked; white logo (gradient mark) limited to `bg-dark`; added full white logo for `primary`; `gradient-neo` allowed in the white logo mark.
+- 1.7 — 2026-10-14 — `gradient-neo` allowed as button fill on `bg-dark`, with a contrast exception for `white` text and icons; buttons removed from `primary` use and added to `bg-dark` (default fill on light backgrounds); `primary` used for button hover outline.
+- 1.8 — 2026-10-14 — `gradient-neo` in buttons changed from fill to border on `bg-dark`; contrast exception for text on gradient removed; `primary` used for secondary button border.
+- 1.9 — 2026-10-14 — `primary` used for button hover/pressed fill and focus ring; `primary-variant` for focus ring on `bg-dark`; `gradient-neo` allowed as button fill on hover/pressed on `bg-dark`, with a contrast exception for `white` text and icons.
+- 1.10 — 2026-10-14 — Button roles added: `primary` / `primary-variant` for ghost button text, `white` for inverse button fill, `bg-subtle` for inverse hover, `text-inverse-low` allowed as secondary button border on `bg-dark`.
+- 1.11 — 2026-10-14 — `white` and `bg-subtle` used as ghost button hover fill (each on the other background).
