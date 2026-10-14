@@ -1,7 +1,7 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.18
+version: 1.19
 updated: 2026-10-14
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
@@ -135,8 +135,8 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Token | Family | Weights allowed | Use for |
 |---|---|---|---|
-| `font-heading` | Plus Jakarta Sans | 500 Medium | Headlines, labels, big numbers |
-| `font-body` | Plus Jakarta Sans | 400 Regular | Body text, captions |
+| `font-heading` | Plus Jakarta Sans | 500 Medium | Headlines, big numbers |
+| `font-body` | Plus Jakarta Sans | 400 Regular | Body text, captions, labels |
 | `font-accent` | Plus Jakarta Sans | 300 Light Italic | Text highlights |
 
 - **Text highlights (MUST):** highlighted words MUST combine `font-accent` and `primary`; on `bg-dark` — `font-accent` and `gradient-neo` (gradient applied to the text). Neither is used alone for a highlight.
@@ -159,7 +159,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.19) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.20) |
 
 ## 7. Changelog
 
@@ -182,3 +182,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.16 — 2026-10-14 — Input underline on light backgrounds moved from `surface-pressed` to `bg-subtle`.
 - 1.17 — 2026-10-14 — Input underline on light backgrounds moved from `bg-subtle` to `text-low`.
 - 1.18 — 2026-10-14 — `primary` used for the input success marker.
+- 1.19 — 2026-10-14 — Labels moved from `font-heading` to `font-body` (400 Regular).

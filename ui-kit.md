@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.19
+version: 0.20
 updated: 2026-10-14
 owner: Arty
 inherits: 00-core-niwart.md
@@ -54,7 +54,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | `body-m` | `Paragraph/M` | 14 / 24 px | Secondary text, dense layouts |
 | `caption` | `Paragraph/S (caption)` | 12 / 20 px | Captions, footnotes, meta, input labels, helper text |
 
-**Labels** — `font-heading`, letter spacing 0, same on desktop and mobile
+**Labels** — `font-body` (400 Regular), letter spacing 0, same on desktop and mobile
 
 | Role | Figma style | Size / line height | Use for |
 |---|---|---|---|
@@ -73,7 +73,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 - MUST be placed directly above a heading (`h1`–`h4`), max one per heading, max ~4 words.
 - MUST NOT be used as running text or as a replacement for a heading.
 
-<!-- В Figma label-стили называются Bold; по core `font-heading` = 500, поэтому лейблы используют 500. -->
+<!-- В Figma label-стили называются Bold; в ui-kit лейблы используют `font-body` 400 Regular. -->
 <!-- В Figma есть стили `Title/*/ExtraLight Italic` (H1–H3) — это старые выделения.
      По core выделение = `font-accent` (300 Light Italic) + `primary` (на `bg-dark` — `gradient-neo`), поэтому отдельные стили не нужны.
      `Title/Mobile/H1/ExtraLight Italic` в Figma имеет 48 / 64 px, больше мобильного H1 — похоже на ошибку. -->
@@ -250,6 +250,7 @@ Circular button with one icon and no label.
 
 ## 5. Changelog
 
+- 0.20 — 2026-10-14 — Label roles (`label-l`, `label-m`, `label-s`) switched from `font-heading` 500 to `font-body` 400 Regular; tags follow.
 - 0.19 — 2026-10-14 — Inputs: success marker fill `primary` with `white` check icon (was `accent-green`).
 - 0.18 — 2026-10-14 — Inputs: label role changed from `label-m` to `caption`.
 - 0.17 — 2026-10-14 — Inputs: default and disabled underline on light backgrounds changed to `text-low`.
