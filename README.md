@@ -7,7 +7,7 @@ Brand guidelines for Niwart in a machine-readable format: tokens and rules that 
 | File | What it is |
 |---|---|
 | [`00-core-niwart.md`](00-core-niwart.md) | Core — single source of truth: colors, text colors, accents, contrast rules, typography, logo. |
-| [`ui-kit.md`](ui-kit.md) | UI kit — type roles, layout grid, tags and buttons for web and product interfaces. |
+| [`ui-kit.md`](ui-kit.md) | UI kit — type roles, layout grid, tags, buttons and inputs for web and product interfaces. |
 | [`assets/logo/`](assets/logo/) | Logo files: full color, white (gradient mark), full white. |
 
 ## How it works

@@ -1,13 +1,13 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.12
+version: 0.17
 updated: 2026-10-14
 owner: Arty
 inherits: 00-core-niwart.md
 overrides: core 4 (weights) — `eyebrow` uses Plus Jakarta Sans 700, see 1.2
 covers: UI kit (web and product interfaces)
-source: Figma — Branding library (text styles, grid styles)
+source: Figma — Branding library (text styles, grid styles); Design Library (inputs, node 9210:585)
 ---
 
 # Niwart — UI kit
@@ -192,17 +192,69 @@ Circular button with one icon and no label.
 
 - **Accessible name (MUST):** every icon button has a text label for screen readers (`aria-label`) and a tooltip with the same text.
 
-### 4.3 Other components
+### 4.3 Inputs
+
+<!-- Источник: Figma Design Library, компоненты `.input` и `.input--marker`, node 9210:585
+     (https://www.figma.com/design/LlgbPskb7DPtCqc7paueZW/Design-Library?node-id=9210-585).
+     Цвета приведены к токенам core. В Figma текст поля набран Inter — заменён на `font-body` (core 4).
+     Подпись над полем, цвет плейсхолдера, вариант для `bg-dark` и цвета иконок маркера в Figma нет — добавлены здесь. -->
+
+**Anatomy:** label above + value text (or placeholder) + underline + status marker on the right; optional helper text below the underline, replaced by the error message in the error state. No box, no fill.
+
+| Property | Value |
+|---|---|
+| Style | Underline only, no fill, no border box |
+| Width | Fluid (Figma: 290 px) |
+| Label | `label-m` (`font-heading` 16 / 20 px), 8 px above the value |
+| Field height | 28 px: text 20 px + gap 8 px + underline |
+| Text | `font-body` 400, 16 / 20 px |
+| Placeholder | Example of the expected input, e.g. «Full Name»; disappears while typing. MUST NOT replace the label |
+| Underline | 1 px, full width |
+| Marker | 20 × 20 px circle, right edge, vertically centered on the text line |
+| Helper text / error message | `caption` (`font-body` 12 / 20 px), 2 px below the underline; one line; the error message replaces the helper text |
+
+**Colors**
+
+| Element | On `white` / `bg-subtle` | On `bg-dark` |
+|---|---|---|
+| Label | `text-high` | `text-inverse-high` |
+| Value | `text-high` | `text-inverse-high` |
+| Placeholder | `text-low` | `text-inverse-low` |
+| Helper text | `text-medium` | `text-inverse-medium` |
+| Error message | `text-high` | `text-inverse-high` |
+
+**States**
+
+| State | Underline — light | Underline — dark | Marker |
+|---|---|---|---|
+| Default | `text-low` | `text-inverse-low` | empty circle, 1 px border: `surface-pressed` on light, `text-inverse-low` on dark |
+| Hover | `text-high` | `text-inverse-high` | empty circle |
+| Active (focus) | `primary` | `primary-variant` | empty circle |
+| Error | `accent-red` | `accent-red` | fill `accent-red`, «!» icon `text-high` + error message below |
+| Success | as default | as default | fill `accent-green`, check icon `text-high` |
+| Disabled | `text-low` | `text-inverse-low` | hidden |
+
+- **Marker** is a separate component (`.input--marker`) with three states: default (empty), valid (check), error («!»). Icon colors follow core 3.4 «Text on tag».
+- **Active** is shown both on click and on keyboard focus; the `primary` / `primary-variant` underline is the focus indicator.
+- **Error (MUST):** the signal is the red underline and marker; the message text stays `text-high` / `text-inverse-high` (core 3.5: no accents as running text).
+- **Disabled (MUST):** label, value, placeholder and helper text in `text-low` (on `bg-dark` — `text-inverse-low`); no hover, focus or marker; cursor `not-allowed`.
+- **Contrast:** the default underline `text-low` ≈ 3.1:1 on `white` (passes 3:1 for a field boundary), ≈ 2.9:1 on `bg-subtle`; on `bg-dark` `text-inverse-low` ≈ 3.1:1.
+
+### 4.4 Other components
 
 | Component | Status |
 |---|---|
-| Inputs | TBD |
 | Cards | TBD |
 | Navigation | TBD |
 | Tables | TBD |
 
 ## 5. Changelog
 
+- 0.17 — 2026-10-14 — Inputs: default and disabled underline on light backgrounds changed to `text-low`.
+- 0.16 — 2026-10-14 — Inputs: default and disabled underline on light backgrounds changed to `bg-subtle`.
+- 0.15 — 2026-10-14 — Inputs: disabled state and helper text added; open questions closed.
+- 0.14 — 2026-10-14 — Inputs: default underline `surface-pressed`; error message in `text-high`; label (`label-m`) above the field and placeholder in `text-low`; `bg-dark` variant from existing tokens; success marker `accent-green`; marker icons `text-high`.
+- 0.13 — 2026-10-14 — Inputs added from Figma Design Library (`.input`, `.input--marker`): anatomy, sizes, states (default, hover, active, error, success), marker; Inter replaced with `font-body`; open questions listed.
 - 0.12 — 2026-10-14 — Ghost on dark hover fill (button and icon button): `white-10` → `white-5`.
 - 0.11 — 2026-10-14 — Secondary on dark (button and icon button): hover and pressed use a 1.5 px `gradient-neo` border instead of a fill; Secondary on dark gets its own column in the states table.
 - 0.10 — 2026-10-14 — `font-accent` 300 Light Italic; highlights on `bg-dark` use `gradient-neo` (gradient text); Ghost on dark: `gradient-neo` text, hover fill `white-10` instead of underline; icon button: Secondary on dark hover fill `gradient-neo`, Ghost on dark icon `white` and hover fill `white-10` with `gradient-neo` icon; Inverse limited to `primary` backgrounds.

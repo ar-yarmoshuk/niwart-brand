@@ -1,7 +1,7 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.14
+version: 1.17
 updated: 2026-10-14
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
@@ -86,7 +86,7 @@ role: Single source of truth. All asset files inherit from this file.
 |---|---|---|---|---|
 | `text-high` | Text High | #05070D | 5 7 13 | Headlines |
 | `text-medium` | Text Medium | #32353D | 50 53 61 | Body text |
-| `text-low` | Text Low | #8C91A1 | 140 145 161 | Disabled state only (see 3.5) |
+| `text-low` | Text Low | #8C91A1 | 140 145 161 | Disabled state, input placeholder (see 3.5); input underline on light backgrounds (~3.1:1) |
 
 **On dark backgrounds** (`bg-dark`)
 
@@ -94,7 +94,7 @@ role: Single source of truth. All asset files inherit from this file.
 |---|---|---|---|---|
 | `text-inverse-high` | Text Inverse High | #FFFFFF | 255 255 255 | Headlines |
 | `text-inverse-medium` | Text Inverse Medium | #A3ABC2 | 163 171 194 | Body text |
-| `text-inverse-low` | Text Inverse Low | #565E76 | 86 94 118 | Disabled state (see 3.5); border of secondary button on `bg-dark` (~3.1:1) |
+| `text-inverse-low` | Text Inverse Low | #565E76 | 86 94 118 | Disabled state, input placeholder (see 3.5); border of secondary button and input underline on `bg-dark` (~3.1:1) |
 
 ### 3.4 Accents
 
@@ -127,7 +127,7 @@ role: Single source of truth. All asset files inherit from this file.
 - **Surface (MUST):** text on `surface` MUST be `text-high` only.
 - **Gradient (MUST NOT):** `gradient-neo` is restricted — MUST NOT be used anywhere else. Exceptions, all on `bg-dark` only: the mark of the white logo; text highlights (section 4); in buttons (see `ui-kit.md`) — the Primary on dark border, its hover and pressed fill, the Secondary on dark hover and pressed border (button and icon button), Ghost on dark text and Ghost on dark icon button hover icon. Gradient text and icons: ≈ 4.5:1 at the start, ≈ 9.7:1 at the end on `bg-dark`.
 - **Neo Blue (MUST):** `primary-variant` MUST be used only on `bg-dark` — never on light backgrounds and never as a fill under text. On light backgrounds use `primary`.
-- **Disabled (MUST):** `text-low` (~3.1:1 on `white`) and `text-inverse-low` (~3.1:1 on `bg-dark`) MUST be used only for disabled states, never for active text. Exception: `text-inverse-low` as the border of the secondary button on `bg-dark`.
+- **Disabled (MUST):** `text-low` (~3.1:1 on `white`) and `text-inverse-low` (~3.1:1 on `bg-dark`) MUST be used only for disabled states, never for active text. Exceptions: both as input placeholder text (exempt from the contrast rule; a label is required) and as the input underline; `text-inverse-low` as the border of the secondary button on `bg-dark`.
 - **Tag text (MUST):** text on accent tags MUST use the color from the «Text on tag» column in 3.4 (all ≥ 4.5:1).
 - **Accents as text (MUST NOT):** accents are for fills, icons and tags, not for running text.
 
@@ -159,7 +159,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons | draft (0.12) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.17) |
 
 ## 7. Changelog
 
@@ -178,3 +178,6 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.12 — 2026-10-14 — `font-accent` changed to 300 Light Italic; text highlights on `bg-dark` use `gradient-neo` instead of `primary-variant`; `gradient-neo` allowed for ghost button text and icon button states on `bg-dark`; added `white-10` (white at 10%) for ghost hover on `bg-dark`; contrast exception for gradient text on `white-10`.
 - 1.13 — 2026-10-14 — `gradient-neo` in Secondary on dark changed from icon button hover fill to hover and pressed border (button and icon button).
 - 1.14 — 2026-10-14 — `white-10` replaced with `white-5` (white at 5%) for ghost hover on `bg-dark`; contrast exception updated (≈ 4.2:1).
+- 1.15 — 2026-10-14 — Input roles: `surface-pressed` for the input underline on light backgrounds; `text-low` / `text-inverse-low` allowed as input placeholder; `text-inverse-low` for the input underline on `bg-dark`.
+- 1.16 — 2026-10-14 — Input underline on light backgrounds moved from `surface-pressed` to `bg-subtle`.
+- 1.17 — 2026-10-14 — Input underline on light backgrounds moved from `bg-subtle` to `text-low`.
