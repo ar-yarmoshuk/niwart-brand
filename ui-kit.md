@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.10
+version: 0.11
 updated: 2026-10-14
 owner: Arty
 inherits: 00-core-niwart.md
@@ -163,18 +163,18 @@ source: Figma — Branding library (text styles, grid styles)
 
 **States**
 
-| State | Primary, Secondary, Secondary on dark | Ghost | Ghost on dark | Primary on dark | Inverse |
-|---|---|---|---|---|---|
-| Hover | fill `primary`, border `primary`, text `white` | fill `bg-subtle` on `white`, fill `white` on `bg-subtle`; text unchanged | fill `white-10`, text unchanged | fill `gradient-neo`, text `white` | fill `bg-subtle` |
-| Pressed | as hover + scale 0.98 | as hover + scale 0.98 | as hover + scale 0.98 | as hover + scale 0.98 | fill `surface-pressed` + scale 0.98 |
-| Focus (keyboard) | default + ring 2 px, offset 2 px: `primary` on light, `primary-variant` on dark | ring `primary` | ring `primary-variant` | ring `primary-variant` | ring `white` |
-| Disabled | no fill, border 1.5 px + text: `surface-pressed` / `text-low` on light, `text-inverse-low` on dark | text `text-low` | text `text-inverse-low` | border and text `text-inverse-low` | no fill, border 1.5 px and text `surface-pressed` |
+| State | Primary, Secondary | Secondary on dark | Ghost | Ghost on dark | Primary on dark | Inverse |
+|---|---|---|---|---|---|---|
+| Hover | fill `primary`, border `primary`, text `white` | no fill, border 1.5 px `gradient-neo`, text `white` | fill `bg-subtle` on `white`, fill `white` on `bg-subtle`; text unchanged | fill `white-10`, text unchanged | fill `gradient-neo`, text `white` | fill `bg-subtle` |
+| Pressed | as hover + scale 0.98 | as hover + scale 0.98 | as hover + scale 0.98 | as hover + scale 0.98 | as hover + scale 0.98 | fill `surface-pressed` + scale 0.98 |
+| Focus (keyboard) | default + ring 2 px, offset 2 px, `primary` | default + ring 2 px, offset 2 px, `primary-variant` | ring `primary` | ring `primary-variant` | ring `primary-variant` | ring `white` |
+| Disabled | no fill, border 1.5 px `surface-pressed`, text `text-low` | no fill, border 1.5 px and text `text-inverse-low` | text `text-low` | text `text-inverse-low` | border and text `text-inverse-low` | no fill, border 1.5 px and text `surface-pressed` |
 
 - **Motion:** 120 ms, `cubic-bezier(.2, 0, 0, 1)` for fill, border and scale. With `prefers-reduced-motion: reduce` — no transition, no scale.
 - **Focus (MUST):** show the ring on keyboard focus only (`:focus-visible`), never remove it.
 - **Disabled (MUST):** no hover, pressed or focus; cursor `not-allowed`.
 - **Hierarchy (SHOULD):** one Primary (or Primary on dark / Inverse) per section; Secondary and Ghost for the rest.
-- **Gradient:** `gradient-neo` is allowed only on `bg-dark`: Primary on dark border (default) and fill (hover, pressed); Ghost on dark text; icon button states below (core 3.5).
+- **Gradient:** `gradient-neo` is allowed only on `bg-dark`: Primary on dark border (default) and fill (hover, pressed); Secondary on dark border (hover, pressed); Ghost on dark text; icon button states below (core 3.5).
 - **Contrast exceptions (core 3.5):** `white` text and icon on `gradient-neo` in hover and pressed; Ghost on dark `gradient-neo` text on `white-10` in hover and pressed (≈ 3.7:1 at the start).
 
 **Icon button**
@@ -187,7 +187,6 @@ Circular button with one icon and no label.
 | Size — `sm` / `lg` | 40 × 40 px / 52 × 52 px |
 | Icon | 20 × 20 px, centered |
 | Variants and states | Same as the text button: each icon button variant inherits fill, border, icon color and all states from the button variant of the same name (Primary, Secondary, Ghost, Primary on dark, Secondary on dark, Ghost on dark, Inverse). Exceptions below. |
-| Secondary on dark — hover, pressed | fill `gradient-neo`, border none, icon `white` |
 | Ghost on dark — default | icon `white` |
 | Ghost on dark — hover, pressed | fill `white-10`, icon `gradient-neo` |
 
@@ -204,6 +203,7 @@ Circular button with one icon and no label.
 
 ## 5. Changelog
 
+- 0.11 — 2026-10-14 — Secondary on dark (button and icon button): hover and pressed use a 1.5 px `gradient-neo` border instead of a fill; Secondary on dark gets its own column in the states table.
 - 0.10 — 2026-10-14 — `font-accent` 300 Light Italic; highlights on `bg-dark` use `gradient-neo` (gradient text); Ghost on dark: `gradient-neo` text, hover fill `white-10` instead of underline; icon button: Secondary on dark hover fill `gradient-neo`, Ghost on dark icon `white` and hover fill `white-10` with `gradient-neo` icon; Inverse limited to `primary` backgrounds.
 - 0.9 — 2026-10-14 — Ghost hover on light backgrounds: fill swaps to the other light background (`bg-subtle` on `white`, `white` on `bg-subtle`); Ghost on dark keeps the underline. Review: label roles no longer mention buttons (buttons use `font-body` 14 / 20); Inverse disabled on `bg-dark` uses `text-inverse-low`.
 - 0.8 — 2026-10-14 — Buttons: added Ghost, Ghost on dark, Secondary on dark, Inverse and Icon button; arrow made optional; full width allowed on mobile; hierarchy rule added.

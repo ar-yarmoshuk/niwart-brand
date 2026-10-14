@@ -1,7 +1,7 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.12
+version: 1.13
 updated: 2026-10-14
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
@@ -125,7 +125,7 @@ role: Single source of truth. All asset files inherit from this file.
 - **Approved text/background pairs — blue:**
   - `white` on `primary` (~5.6:1)
 - **Surface (MUST):** text on `surface` MUST be `text-high` only.
-- **Gradient (MUST NOT):** `gradient-neo` is restricted — MUST NOT be used anywhere else. Exceptions, all on `bg-dark` only: the mark of the white logo; text highlights (section 4); in buttons (see `ui-kit.md`) — the Primary on dark border, its hover and pressed fill, the Secondary on dark icon button hover and pressed fill, Ghost on dark text and Ghost on dark icon button hover icon. Gradient text and icons: ≈ 4.5:1 at the start, ≈ 9.7:1 at the end on `bg-dark`.
+- **Gradient (MUST NOT):** `gradient-neo` is restricted — MUST NOT be used anywhere else. Exceptions, all on `bg-dark` only: the mark of the white logo; text highlights (section 4); in buttons (see `ui-kit.md`) — the Primary on dark border, its hover and pressed fill, the Secondary on dark hover and pressed border (button and icon button), Ghost on dark text and Ghost on dark icon button hover icon. Gradient text and icons: ≈ 4.5:1 at the start, ≈ 9.7:1 at the end on `bg-dark`.
 - **Neo Blue (MUST):** `primary-variant` MUST be used only on `bg-dark` — never on light backgrounds and never as a fill under text. On light backgrounds use `primary`.
 - **Disabled (MUST):** `text-low` (~3.1:1 on `white`) and `text-inverse-low` (~3.1:1 on `bg-dark`) MUST be used only for disabled states, never for active text. Exception: `text-inverse-low` as the border of the secondary button on `bg-dark`.
 - **Tag text (MUST):** text on accent tags MUST use the color from the «Text on tag» column in 3.4 (all ≥ 4.5:1).
@@ -159,7 +159,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons | draft (0.10) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons | draft (0.11) |
 
 ## 7. Changelog
 
@@ -176,3 +176,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.10 — 2026-10-14 — Button roles added: `primary` / `primary-variant` for ghost button text, `white` for inverse button fill, `bg-subtle` for inverse hover, `text-inverse-low` allowed as secondary button border on `bg-dark`.
 - 1.11 — 2026-10-14 — `white` and `bg-subtle` used as ghost button hover fill (each on the other background).
 - 1.12 — 2026-10-14 — `font-accent` changed to 300 Light Italic; text highlights on `bg-dark` use `gradient-neo` instead of `primary-variant`; `gradient-neo` allowed for ghost button text and icon button states on `bg-dark`; added `white-10` (white at 10%) for ghost hover on `bg-dark`; contrast exception for gradient text on `white-10`.
+- 1.13 — 2026-10-14 — `gradient-neo` in Secondary on dark changed from icon button hover fill to hover and pressed border (button and icon button).
