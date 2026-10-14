@@ -1,7 +1,7 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.19
+version: 1.20
 updated: 2026-10-14
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
@@ -78,6 +78,14 @@ role: Single source of truth. All asset files inherit from this file.
 
 <!-- `Greys/Surface/Hover` в Figma = #E7EAF0, то же, что Default. Отдельный токен не заводим. -->
 
+**Background variation**
+
+<!-- CSS: linear-gradient(180deg, #FFF 0%, #F5F7FC 20%) -->
+
+| Token | Name | Type / angle | Stops (HEX, position) | Use for |
+|---|---|---|---|---|
+| `bg-subtle-fade` | Subtle Background Fade | Linear, 180° (top → bottom) | #FFFFFF 0% → #F5F7FC 20% | Variation of `bg-subtle` for a section that directly follows a `white` section (see 3.5) |
+
 ### 3.3 Text colors
 
 **On light backgrounds** (`white`, `bg-subtle`)
@@ -126,6 +134,7 @@ role: Single source of truth. All asset files inherit from this file.
   - `white` on `primary` (~5.6:1)
 - **Surface (MUST):** text on `surface` MUST be `text-high` only.
 - **Gradient (MUST NOT):** `gradient-neo` is restricted — MUST NOT be used anywhere else. Exceptions, all on `bg-dark` only: the mark of the white logo; text highlights (section 4); in buttons (see `ui-kit.md`) — the Primary on dark border, its hover and pressed fill, the Secondary on dark hover and pressed border (button and icon button), Ghost on dark text and Ghost on dark icon button hover icon. Gradient text and icons: ≈ 4.5:1 at the start, ≈ 9.7:1 at the end on `bg-dark`.
+- **Subtle fade (MUST):** `bg-subtle-fade` follows all rules of `bg-subtle` (approved text pairs, cards, buttons, inputs). It MUST be used only for an element whose preceding element (directly above) has a `white` background; in any other case use `bg-subtle`.
 - **Neo Blue (MUST):** `primary-variant` MUST be used only on `bg-dark` — never on light backgrounds and never as a fill under text. On light backgrounds use `primary`.
 - **Disabled (MUST):** `text-low` (~3.1:1 on `white`) and `text-inverse-low` (~3.1:1 on `bg-dark`) MUST be used only for disabled states, never for active text. Exceptions: both as input placeholder text (exempt from the contrast rule; a label is required) and as the input underline; `text-inverse-low` as the border of the secondary button on `bg-dark`.
 - **Tag text (MUST):** text on accent tags MUST use the color from the «Text on tag» column in 3.4 (all ≥ 4.5:1).
@@ -183,3 +192,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.17 — 2026-10-14 — Input underline on light backgrounds moved from `bg-subtle` to `text-low`.
 - 1.18 — 2026-10-14 — `primary` used for the input success marker.
 - 1.19 — 2026-10-14 — Labels moved from `font-heading` to `font-body` (400 Regular).
+- 1.20 — 2026-10-14 — Added `bg-subtle-fade` (linear 180°, #FFFFFF 0% → #F5F7FC 20%): a `bg-subtle` variation allowed only directly after a `white` element; follows all `bg-subtle` rules.
