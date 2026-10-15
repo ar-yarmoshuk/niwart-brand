@@ -1,8 +1,8 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.20
-updated: 2026-10-14
+version: 0.21
+updated: 2026-10-15
 owner: Arty
 inherits: 00-core-niwart.md
 overrides: core 4 (weights) — `eyebrow` uses Plus Jakarta Sans 700, see 1.2
@@ -24,7 +24,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 
 | Token (core) | Family | Weight | Web font stack |
 |---|---|---|---|
-| `font-heading` | Plus Jakarta Sans | 500 | `"Plus Jakarta Sans", Arial, sans-serif` |
+| `font-heading` | Plus Jakarta Sans | 500 (> 32 px), 400 (≤ 32 px) | `"Plus Jakarta Sans", Arial, sans-serif` |
 | `font-body` | Plus Jakarta Sans | 400 | `"Plus Jakarta Sans", Arial, sans-serif` |
 | `font-accent` | Plus Jakarta Sans | 300 italic | `"Plus Jakarta Sans", Arial, sans-serif` |
 
@@ -34,17 +34,18 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 
 ### 1.2 Type roles
 
-<!-- Размеры и интерлиньяж — из описаний текстовых стилей Figma. Колонка «Figma style» — исходное имя стиля. -->
+<!-- Размеры и интерлиньяж — из описаний текстовых стилей Figma. Колонка «Figma style» — исходное имя стиля.
+     Десктопные заголовки с 0.21 заданы здесь (72 / 44 / 32 / 28 / 24) и расходятся с Figma; мобильные — по Figma. -->
 
-**Headings** — `font-heading`, letter spacing 0
+**Headings** — `font-heading`, letter spacing 0. Weight by size: > 32 px — 500 Medium, ≤ 32 px — 400 Regular (core 4).
 
-| Role | Figma style | Desktop size / line height | Mobile size / line height |
-|---|---|---|---|
-| `h1` | `Title/Desktop/H1/Regular`, `Title/Mobile/H1/Regular` | 48 / 64 px | 32 / 40 px |
-| `h2` | `Title/Desktop/H2/Regular`, `Title/Mobile/H2` | 40 / 52 px | 28 / 36 px |
-| `h3` | `Title/Desktop/H3/Regular`, `Title/Mobile/H3` | 32 / 40 px | 26 / 32 px |
-| `h4` | `Title/Desktop/H4`, `Title/Mobile/H4` | 24 / 32 px | 22 / 28 px |
-| `h5` | `Title/Desktop/H5`, `Title/Mobile/H5` | 20 / 28 px | 20 / 28 px |
+| Role | Figma style | Desktop size / line height | Desktop weight | Mobile size / line height | Mobile weight |
+|---|---|---|---|---|---|
+| `h1` | `Title/Desktop/H1/Regular`, `Title/Mobile/H1/Regular` | 72 / 80 px | 500 | 32 / 40 px | 400 |
+| `h2` | `Title/Desktop/H2/Regular`, `Title/Mobile/H2` | 44 / 52 px | 500 | 28 / 36 px | 400 |
+| `h3` | `Title/Desktop/H3/Regular`, `Title/Mobile/H3` | 32 / 40 px | 400 | 26 / 32 px | 400 |
+| `h4` | `Title/Desktop/H4`, `Title/Mobile/H4` | 28 / 36 px | 400 | 22 / 28 px | 400 |
+| `h5` | `Title/Desktop/H5`, `Title/Mobile/H5` | 24 / 32 px | 400 | 20 / 28 px | 400 |
 
 **Body** — `font-body`, letter spacing 0, same on desktop and mobile
 
@@ -250,6 +251,7 @@ Circular button with one icon and no label.
 
 ## 5. Changelog
 
+- 0.21 — 2026-10-15 — Desktop heading scale changed: h1 72 / 80, h2 44 / 52, h3 32 / 40, h4 28 / 36, h5 24 / 32 px (line heights on a 4 px grid); heading weight by size: > 32 px 500 Medium, ≤ 32 px 400 Regular.
 - 0.20 — 2026-10-14 — Label roles (`label-l`, `label-m`, `label-s`) switched from `font-heading` 500 to `font-body` 400 Regular; tags follow.
 - 0.19 — 2026-10-14 — Inputs: success marker fill `primary` with `white` check icon (was `accent-green`).
 - 0.18 — 2026-10-14 — Inputs: label role changed from `label-m` to `caption`.

@@ -1,8 +1,8 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.20
-updated: 2026-10-14
+version: 1.21
+updated: 2026-10-15
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
 role: Single source of truth. All asset files inherit from this file.
@@ -144,7 +144,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Token | Family | Weights allowed | Use for |
 |---|---|---|---|
-| `font-heading` | Plus Jakarta Sans | 500 Medium | Headlines, big numbers |
+| `font-heading` | Plus Jakarta Sans | 500 Medium (> 32 px), 400 Regular (≤ 32 px) | Headlines, big numbers |
 | `font-body` | Plus Jakarta Sans | 400 Regular | Body text, captions, labels |
 | `font-accent` | Plus Jakarta Sans | 300 Light Italic | Text highlights |
 
@@ -168,7 +168,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.20) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.21) |
 
 ## 7. Changelog
 
@@ -193,3 +193,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.18 — 2026-10-14 — `primary` used for the input success marker.
 - 1.19 — 2026-10-14 — Labels moved from `font-heading` to `font-body` (400 Regular).
 - 1.20 — 2026-10-14 — Added `bg-subtle-fade` (linear 180°, #FFFFFF 0% → #F5F7FC 20%): a `bg-subtle` variation allowed only directly after a `white` element; follows all `bg-subtle` rules.
+- 1.21 — 2026-10-15 — `font-heading` weight by size: 500 Medium above 32 px, 400 Regular up to 32 px.
