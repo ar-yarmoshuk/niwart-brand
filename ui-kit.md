@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.21
+version: 0.22
 updated: 2026-10-15
 owner: Arty
 inherits: 00-core-niwart.md
@@ -51,8 +51,9 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 
 | Role | Figma style | Size / line height | Use for |
 |---|---|---|---|
-| `body-l` | `Paragraph/L` | 16 / 28 px | Default body text |
-| `body-m` | `Paragraph/M` | 14 / 24 px | Secondary text, dense layouts |
+| `body-l` | — | 18 / 28 px | Default body text, paragraphs |
+| `body-m` | `Paragraph/L` (16 px) | 16 / 24 px | Text in cards |
+| `body-s` | `Paragraph/M` (14 px) | 14 / 20 px | Secondary text, dense layouts |
 | `caption` | `Paragraph/S (caption)` | 12 / 20 px | Captions, footnotes, meta, input labels, helper text |
 
 **Labels** — `font-body` (400 Regular), letter spacing 0, same on desktop and mobile
@@ -84,7 +85,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | Role | On `white` / `bg-subtle` | On `bg-dark` | On `primary` |
 |---|---|---|---|
 | `h1`–`h5` | `text-high` | `text-inverse-high` | `white` |
-| `body-l`, `body-m`, `caption` | `text-medium` | `text-inverse-medium` | `white` |
+| `body-l`, `body-m`, `body-s`, `caption` | `text-medium` | `text-inverse-medium` | `white` |
 | `label-*` | `text-high` | `text-inverse-high` | `white` |
 | `eyebrow` | `primary` | `primary-variant` | `white` |
 | Disabled | `text-low` | `text-inverse-low` | — |
@@ -94,7 +95,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 - MUST use only the roles from 1.2; no custom sizes.
 - MUST NOT skip heading levels for visual size; pick the role, not the size.
 - MUST NOT center-align body text longer than 2 lines. Left-align by default.
-- SHOULD keep line length of `body-l` within 60–80 characters.
+- SHOULD keep line length of `body-l` and `body-m` within 60–80 characters.
 - Text highlights follow core section 4: `font-accent` + `primary` (on `bg-dark` — `font-accent` + `gradient-neo`), at the size of the surrounding role.
 - **Gradient text:** `background: <gradient-neo>; -webkit-background-clip: text; background-clip: text; color: transparent`. The gradient spans the highlighted words, not the whole line.
 - Numbers in tables SHOULD use tabular figures (`font-variant-numeric: tabular-nums`).
@@ -251,6 +252,7 @@ Circular button with one icon and no label.
 
 ## 5. Changelog
 
+- 0.22 — 2026-10-15 — Body scale rewritten: `body-l` 18 / 28 (default, paragraphs), `body-m` 16 / 24 (cards), new `body-s` 14 / 20 px; Figma Paragraph styles no longer match.
 - 0.21 — 2026-10-15 — Desktop heading scale changed: h1 72 / 80, h2 44 / 52, h3 32 / 40, h4 28 / 36, h5 24 / 32 px (line heights on a 4 px grid); heading weight by size: > 32 px 500 Medium, ≤ 32 px 400 Regular.
 - 0.20 — 2026-10-14 — Label roles (`label-l`, `label-m`, `label-s`) switched from `font-heading` 500 to `font-body` 400 Regular; tags follow.
 - 0.19 — 2026-10-14 — Inputs: success marker fill `primary` with `white` check icon (was `accent-green`).
