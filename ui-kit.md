@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.28
+version: 0.29
 updated: 2026-10-18
 owner: Arty
 inherits: 00-core-niwart.md
@@ -202,7 +202,7 @@ Vertical space between text roles inside one block. Measured from the bottom of 
 | What | Desktop | Mobile |
 |---|---|---|
 | Between buttons in a row | `space-16` | `space-12` (stacked, full width) |
-| Input → input | `space-24` | `space-24` |
+| Input → input | `space-48` | `space-48` |
 | Last input → submit button | `space-32` | `space-24` |
 
 ### 3.3 Radius and shadows
@@ -391,6 +391,7 @@ Small square icon button that opens a card or its details («open», «read more
 
 ## 5. Changelog
 
+- 0.29 — 2026-10-18 — Block spacing: input → input 24 → 48 px (desktop and mobile).
 - 0.28 — 2026-10-18 — Spacing scale defined (`space-8` … `space-120`); block spacing for cards, page sections, buttons and forms; nested radius rule; section 3 split into 3.1–3.3.
 - 0.27 — 2026-10-18 — Added pair spacing (1.5): desktop and mobile gaps for eyebrow, heading–text pairs, approach pair, paragraphs, text → button, quote → attribution.
 - 0.26 — 2026-10-18 — Inputs: gap between the value and the underline 8 → 12 px; field height 32 px; total height 60 / 82 px added.
