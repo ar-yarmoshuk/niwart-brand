@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.24
+version: 0.26
 updated: 2026-10-18
 owner: Arty
 inherits: 00-core-niwart.md
@@ -54,14 +54,14 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | `body-l` | — | 24 / 36 px | Text paired with `h1` |
 | `body-m` | — | 20 / 30 px | Text paired with `h2`–`h5`; default body text |
 | `body-s` | — | 18 / 27 px | Button text, input value |
-| `caption` | `Paragraph/S (caption)` | 12 / 20 px | Captions, footnotes, meta, input labels, helper text |
+| `caption` | `Paragraph/S (caption)` | 12 / 20 px | Captions, footnotes, meta, input helper text |
 
 **Labels** — `font-body` (400 Regular), letter spacing 0, same on desktop and mobile
 
 | Role | Figma style | Size / line height | Use for |
 |---|---|---|---|
 | `label-l` | `Label/L/Bold` | 18 / 24 px | Navigation |
-| `label-m` | `Label/M/Bold` | 16 / 20 px | UI labels |
+| `label-m` | `Label/M/Bold` | 16 / 20 px | UI labels, input labels |
 | `label-s` | `Label/S/Bold` | 14 / 18 px | Tags |
 
 **Quote**
@@ -274,8 +274,9 @@ Small square icon button that opens a card or its details («open», «read more
 |---|---|
 | Style | Underline only, no fill, no border box |
 | Width | Fluid (Figma: 290 px) |
-| Label | `caption` (`font-body` 400, 12 / 20 px), 8 px above the value |
-| Field height | 28 px: text 20 px + gap 8 px + underline |
+| Label | `label-m` (`font-body` 400 Regular, 16 / 20 px), 8 px above the value |
+| Field height | 32 px: text 20 px + gap 12 px + underline |
+| Total height | 60 px (label 20 + 8 + field 32); 82 px with helper text or error message (+ 2 + 20) |
 | Text (value) | `body-s` size (`font-body` 400, 18 px), line height 20 px inside the field |
 | Placeholder | Example of the expected input, e.g. «Full Name»; disappears while typing. MUST NOT replace the label |
 | Underline | 1 px, full width |
@@ -319,6 +320,8 @@ Small square icon button that opens a card or its details («open», «read more
 
 ## 5. Changelog
 
+- 0.26 — 2026-10-18 — Inputs: gap between the value and the underline 8 → 12 px; field height 32 px; total height 60 / 82 px added.
+- 0.25 — 2026-10-18 — Inputs: label role changed from `caption` to `label-m` (16 / 20, Regular); all label roles stay `font-body` 400 Regular.
 - 0.24 — 2026-10-18 — Neutral tag redesigned from Figma Website (`white` fill, `surface-pressed` border, `shadow-xs`, 8 px radius, optional icon, uppercase `label-s`); added `radius-s` and `shadow-xs`; button arrow is now [`assets/icons/arrow.svg`](assets/icons/arrow.svg); added card icon button (32 px square, `maximize` icon) for cards without a Ghost button; icons stored in `assets/icons/`.
 - 0.23 — 2026-10-18 — Body scale: `body-l` 24 / 36 (with `h1`), `body-m` 20 / 30 (with `h2`–`h5`), `body-s` 18 / 27 (buttons, input value); heading–text pair rule; added `quote` (32 / 48, 300 italic) and the approach pair (`h5` title + `approach-text` 44 / 66, 300 Light); button and input text 18 px with 20 px line height.
 - 0.22 — 2026-10-15 — Body scale rewritten: `body-l` 18 / 28 (default, paragraphs), `body-m` 16 / 24 (cards), new `body-s` 14 / 20 px; Figma Paragraph styles no longer match.
