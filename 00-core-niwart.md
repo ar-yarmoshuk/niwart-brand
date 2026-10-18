@@ -1,7 +1,7 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.22
+version: 1.23
 updated: 2026-10-18
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
@@ -37,7 +37,7 @@ role: Single source of truth. All asset files inherit from this file.
 - MUST NOT stretch, recolor, rotate or add effects to the logo.
 - MUST NOT place text on photos without a solid overlay.
 - SHOULD use one accent color per layout for shapes, icons and other non-tag fills.
-- MAY use several accent colors per layout only in tags and statuses, and MUST NOT exceed 3 different accents per layout; with more categories, use tags on `surface` without color.
+- MAY use several accent colors per layout only in tags and statuses, and MUST NOT exceed 3 different accents per layout; with more categories, use neutral tags (`white` with a `surface-pressed` border, see `ui-kit.md`) without color.
 - MUST keep one meaning per accent color within a material (same category = same color).
 - MUST use `accent-red`, `accent-green` and `accent-orange` only for statuses, never for categories. Category tags use `accent-yellow`, `accent-teal`, `accent-indigo`, `accent-purple`, `accent-pink`.
 - MUST keep `primary` dominant: accents MUST NOT take more area in a layout than `primary`.
@@ -69,11 +69,11 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Token | Name | HEX | RGB | Use for |
 |---|---|---|---|---|
-| `white` | White | #FFFFFF | 255 255 255 | Main background, cards on `bg-subtle`, text on `primary`, inverse button fill, ghost button hover fill on `bg-subtle` |
+| `white` | White | #FFFFFF | 255 255 255 | Main background, cards on `bg-subtle`, text on `primary`, inverse button fill, neutral tag and card icon button fill, ghost button hover fill on `bg-subtle` |
 | `bg-subtle` | Subtle Background | #F5F7FC | 245 247 252 | Light alternate background: sections, slide and page backgrounds, cards on `white`, inverse button hover fill, ghost button hover fill on `white` |
 | `bg-dark` | Dark Background | #05070D | 5 7 13 | Dark alternate background: sections; primary button fill on `white` / `bg-subtle` |
-| `surface` | Surface Default | #E7EAF0 | 231 234 240 | Tags |
-| `surface-pressed` | Surface Pressed | #D1D5E2 | 209 213 226 | Outlines, pressed state |
+| `surface` | Surface Default | #E7EAF0 | 231 234 240 | Reserved — no UI kit use since ui-kit 0.24 (neutral tag moved to `white` + border) |
+| `surface-pressed` | Surface Pressed | #D1D5E2 | 209 213 226 | Outlines (neutral tag, card icon button), pressed state |
 | `white-5` | White 5% | #FFFFFF, opacity 5% | 255 255 255 / 0.05 | Hover fill of ghost buttons on `bg-dark` (≈ #121319 on `bg-dark`) |
 
 <!-- `Greys/Surface/Hover` в Figma = #E7EAF0, то же, что Default. Отдельный токен не заводим. -->
@@ -168,7 +168,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.23) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.24) |
 
 ## 7. Changelog
 
@@ -195,3 +195,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.20 — 2026-10-14 — Added `bg-subtle-fade` (linear 180°, #FFFFFF 0% → #F5F7FC 20%): a `bg-subtle` variation allowed only directly after a `white` element; follows all `bg-subtle` rules.
 - 1.21 — 2026-10-15 — `font-heading` weight by size: 500 Medium above 32 px, 400 Regular up to 32 px.
 - 1.22 — 2026-10-18 — `font-body` allows 300 Light for approach text only; `font-accent` used for quotes.
+- 1.23 — 2026-10-18 — Neutral tags moved from `surface` to `white` with a `surface-pressed` border; `surface` reserved; `white` and `surface-pressed` used for the card icon button.

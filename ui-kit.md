@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.23
+version: 0.24
 updated: 2026-10-18
 owner: Arty
 inherits: 00-core-niwart.md
@@ -137,29 +137,49 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 ## 3. Spacing and shape
 
 - **Spacing scale:** TBD. Gutters in section 2 suggest a base of 8 px (8 / 16 / 24 / 32 / 48 / 64) — confirm before use.
-- **Corner radius:** TBD (buttons, cards, tags, inputs).
-- **Shadows:** TBD.
+- **Corner radius:** `radius-s` — 8 px (neutral tag, card icon button); buttons and icon buttons — pill / circle (4.2); other radii TBD.
+- **Shadows:** `shadow-xs` — `0 0 2px rgba(5, 7, 13, 0.05)` (neutral tag); other shadows TBD.
 
 ## 4. Components
 
 ### 4.1 Tags and statuses
 
+<!-- Нейтральный тег: Figma Website, компонент `nw/Tag`, node 8244:10274
+     (https://www.figma.com/design/D60XCEWqi6XfVQJy7aFK2K/Website?node-id=8244-10274).
+     В Figma обводка `surface-pressed` с прозрачностью 77% и иконка `text-high` с прозрачностью 70% — приведены к токенам core. -->
+
+**Neutral tag**
+
+| Property | Value |
+|---|---|
+| Fill | `white` |
+| Border | 1 px `surface-pressed`, inside |
+| Shadow | `shadow-xs` (section 3) |
+| Radius | `radius-s` — 8 px |
+| Padding | 8 px horizontal, 6 px vertical |
+| Height | 32 px |
+| Gap (icon → text) | 8 px |
+| Icon | optional, 15 × 15 px, `text-medium`; e.g. [`assets/icons/code-xml.svg`](assets/icons/code-xml.svg) |
+| Text | `label-s` (`font-body` 400, 14 / 18 px), uppercase, `text-high` |
+| Use on | `white`, `bg-subtle` |
+
+**Category tags and statuses**
+
 | Variant | Fill | Text | Text role |
 |---|---|---|---|
-| Neutral tag | `surface` | `text-high` | `label-s` |
 | Category tag | `accent-yellow`, `accent-teal`, `accent-indigo`, `accent-purple`, `accent-pink` | color from «Text on tag» in core 3.4 | `label-s` |
 | Status — error / risk | `accent-red` | `text-high` | `label-s` |
 | Status — warning | `accent-orange` | `text-high` | `label-s` |
 | Status — success | `accent-green` | `text-high` | `label-s` |
 
 - MUST follow core section 2: max 3 accent colors per layout, one meaning per color, more categories → neutral tags.
-- Padding, height and radius: TBD.
+- Category tags and statuses: padding, height and radius — TBD.
 
 ### 4.2 Buttons
 
 <!-- Источник истины для кнопок — этот файл, не Figma. Компонент `.button` в Figma (Design Library, node 9203:3365) может отличаться; при расхождении прав этот файл. -->
 
-**Anatomy:** text label + optional trailing arrow icon (`east`, 20 × 20 px). Both «with arrow» and «without arrow» are allowed.
+**Anatomy:** text label + optional trailing arrow icon ([`assets/icons/arrow.svg`](assets/icons/arrow.svg), 20 × 20 px, `currentColor` — takes the text color). Both «with arrow» and «without arrow» are allowed.
 
 | Property | Value |
 |---|---|
@@ -214,6 +234,32 @@ Circular button with one icon and no label.
 | Ghost on dark — hover, pressed | fill `white-5`, icon `gradient-neo` |
 
 - **Accessible name (MUST):** every icon button has a text label for screen readers (`aria-label`) and a tooltip with the same text.
+
+**Card icon button**
+
+<!-- Figma Website, `Icon button`, node 8244:10401
+     (https://www.figma.com/design/D60XCEWqi6XfVQJy7aFK2K/Website?node-id=8244-10401).
+     Состояния в Figma не заданы — добавлены здесь по логике кнопок. -->
+
+Small square icon button that opens a card or its details («open», «read more»).
+
+| Property | Value |
+|---|---|
+| Shape | Square, `radius-s` — 8 px |
+| Size | 32 × 32 px |
+| Icon | 16 × 16 px, centered; [`assets/icons/maximize.svg`](assets/icons/maximize.svg) |
+| Use on | Cards on `white` / `bg-subtle` |
+
+| State | Fill | Border | Icon |
+|---|---|---|---|
+| Default | `white` | 1 px `surface-pressed` | `text-high` |
+| Hover | `primary` | 1 px `primary` | `white` |
+| Pressed | as hover + scale 0.98 | | |
+| Focus (keyboard) | default + ring 2 px `primary`, offset 2 px | | |
+| Disabled | `white` | 1 px `surface-pressed` | `text-low` |
+
+- **Use (MUST):** only inside a card that has no Ghost button, as its open / read more action; one per card. A card with a Ghost button uses the Ghost button instead.
+- **Accessible name (MUST):** `aria-label` names the action and the card, e.g. «Open: Websites».
 
 ### 4.3 Inputs
 
@@ -273,6 +319,7 @@ Circular button with one icon and no label.
 
 ## 5. Changelog
 
+- 0.24 — 2026-10-18 — Neutral tag redesigned from Figma Website (`white` fill, `surface-pressed` border, `shadow-xs`, 8 px radius, optional icon, uppercase `label-s`); added `radius-s` and `shadow-xs`; button arrow is now [`assets/icons/arrow.svg`](assets/icons/arrow.svg); added card icon button (32 px square, `maximize` icon) for cards without a Ghost button; icons stored in `assets/icons/`.
 - 0.23 — 2026-10-18 — Body scale: `body-l` 24 / 36 (with `h1`), `body-m` 20 / 30 (with `h2`–`h5`), `body-s` 18 / 27 (buttons, input value); heading–text pair rule; added `quote` (32 / 48, 300 italic) and the approach pair (`h5` title + `approach-text` 44 / 66, 300 Light); button and input text 18 px with 20 px line height.
 - 0.22 — 2026-10-15 — Body scale rewritten: `body-l` 18 / 28 (default, paragraphs), `body-m` 16 / 24 (cards), new `body-s` 14 / 20 px; Figma Paragraph styles no longer match.
 - 0.21 — 2026-10-15 — Desktop heading scale changed: h1 72 / 80, h2 44 / 52, h3 32 / 40, h4 28 / 36, h5 24 / 32 px (line heights on a 4 px grid); heading weight by size: > 32 px 500 Medium, ≤ 32 px 400 Regular.
