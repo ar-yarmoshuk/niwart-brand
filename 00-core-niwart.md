@@ -1,8 +1,8 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.21
-updated: 2026-10-15
+version: 1.22
+updated: 2026-10-18
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
 role: Single source of truth. All asset files inherit from this file.
@@ -145,8 +145,8 @@ role: Single source of truth. All asset files inherit from this file.
 | Token | Family | Weights allowed | Use for |
 |---|---|---|---|
 | `font-heading` | Plus Jakarta Sans | 500 Medium (> 32 px), 400 Regular (≤ 32 px) | Headlines, big numbers |
-| `font-body` | Plus Jakarta Sans | 400 Regular | Body text, captions, labels |
-| `font-accent` | Plus Jakarta Sans | 300 Light Italic | Text highlights |
+| `font-body` | Plus Jakarta Sans | 400 Regular; 300 Light (approach text only) | Body text, captions, labels, approach text |
+| `font-accent` | Plus Jakarta Sans | 300 Light Italic | Text highlights, quotes |
 
 - **Text highlights (MUST):** highlighted words MUST combine `font-accent` and `primary`; on `bg-dark` — `font-accent` and `gradient-neo` (gradient applied to the text). Neither is used alone for a highlight.
 - **Font source:** Google Fonts (license: SIL Open Font License — verify before distribution).
@@ -168,7 +168,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.22) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, layout grid, tags, buttons, inputs | draft (0.23) |
 
 ## 7. Changelog
 
@@ -194,3 +194,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.19 — 2026-10-14 — Labels moved from `font-heading` to `font-body` (400 Regular).
 - 1.20 — 2026-10-14 — Added `bg-subtle-fade` (linear 180°, #FFFFFF 0% → #F5F7FC 20%): a `bg-subtle` variation allowed only directly after a `white` element; follows all `bg-subtle` rules.
 - 1.21 — 2026-10-15 — `font-heading` weight by size: 500 Medium above 32 px, 400 Regular up to 32 px.
+- 1.22 — 2026-10-18 — `font-body` allows 300 Light for approach text only; `font-accent` used for quotes.

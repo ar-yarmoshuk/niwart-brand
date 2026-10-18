@@ -1,11 +1,11 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.22
-updated: 2026-10-15
+version: 0.23
+updated: 2026-10-18
 owner: Arty
 inherits: 00-core-niwart.md
-overrides: core 4 (weights) — `eyebrow` uses Plus Jakarta Sans 700, see 1.2
+overrides: core 4 (weights) — `eyebrow` uses Plus Jakarta Sans 700, `approach-text` uses 300 Light, see 1.2
 covers: UI kit (web and product interfaces)
 source: Figma — Branding library (text styles, grid styles); Design Library (inputs, node 9210:585)
 ---
@@ -25,11 +25,11 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | Token (core) | Family | Weight | Web font stack |
 |---|---|---|---|
 | `font-heading` | Plus Jakarta Sans | 500 (> 32 px), 400 (≤ 32 px) | `"Plus Jakarta Sans", Arial, sans-serif` |
-| `font-body` | Plus Jakarta Sans | 400 | `"Plus Jakarta Sans", Arial, sans-serif` |
+| `font-body` | Plus Jakarta Sans | 400; 300 (`approach-text` only) | `"Plus Jakarta Sans", Arial, sans-serif` |
 | `font-accent` | Plus Jakarta Sans | 300 italic | `"Plus Jakarta Sans", Arial, sans-serif` |
 
-- **Loading (MUST):** load from Google Fonts only 400, 500, 300 italic and 700 (700 — for `eyebrow` only).
-- **Fallback:** Arial — Regular for 400, Bold for 500, Italic for 300 italic, Bold for 700.
+- **Loading (MUST):** load from Google Fonts only 300, 400, 500, 300 italic and 700 (300 upright — for `approach-text` only, 700 — for `eyebrow` only).
+- **Fallback:** Arial — Regular for 300 and 400, Bold for 500, Italic for 300 italic, Bold for 700.
 - **Units:** sizes are given in px; rem = px / 16.
 
 ### 1.2 Type roles
@@ -47,13 +47,13 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | `h4` | `Title/Desktop/H4`, `Title/Mobile/H4` | 28 / 36 px | 400 | 22 / 28 px | 400 |
 | `h5` | `Title/Desktop/H5`, `Title/Mobile/H5` | 24 / 32 px | 400 | 20 / 28 px | 400 |
 
-**Body** — `font-body`, letter spacing 0, same on desktop and mobile
+**Body** — `font-body` 400, letter spacing 0, line height 150%, same on desktop and mobile
 
 | Role | Figma style | Size / line height | Use for |
 |---|---|---|---|
-| `body-l` | — | 18 / 28 px | Default body text, paragraphs |
-| `body-m` | `Paragraph/L` (16 px) | 16 / 24 px | Text in cards |
-| `body-s` | `Paragraph/M` (14 px) | 14 / 20 px | Secondary text, dense layouts |
+| `body-l` | — | 24 / 36 px | Text paired with `h1` |
+| `body-m` | — | 20 / 30 px | Text paired with `h2`–`h5`; default body text |
+| `body-s` | — | 18 / 27 px | Button text, input value |
 | `caption` | `Paragraph/S (caption)` | 12 / 20 px | Captions, footnotes, meta, input labels, helper text |
 
 **Labels** — `font-body` (400 Regular), letter spacing 0, same on desktop and mobile
@@ -63,6 +63,25 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | `label-l` | `Label/L/Bold` | 18 / 24 px | Navigation |
 | `label-m` | `Label/M/Bold` | 16 / 20 px | UI labels |
 | `label-s` | `Label/S/Bold` | 14 / 18 px | Tags |
+
+**Quote**
+
+| Role | Font | Weight | Size / line height | Letter spacing |
+|---|---|---|---|---|
+| `quote` | `font-accent` | 300 italic | 32 / 48 px (150%) | 0 |
+
+- Mobile size: TBD.
+
+**Approach** — a highlight pair: `h5` title + large light description
+
+| Role | Font | Weight | Size / line height | Letter spacing |
+|---|---|---|---|---|
+| `approach-title` | `font-heading` (role `h5`) | as `h5` | as `h5` | 0 |
+| `approach-text` | `font-body` | 300 Light | 44 / 66 px (150%) | 0 |
+
+- **Approach pair (MUST):** `approach-text` is used only directly under an `approach-title` (`h5`); an `approach-title` is always followed by `approach-text`. Use the pair to highlight a key statement (approach, principle, value).
+- **Override (core 4):** `approach-text` is the only role allowed to use upright 300 Light.
+- Mobile size of `approach-text`: TBD.
 
 **Eyebrow** — short uppercase label above a heading; same on desktop and mobile
 
@@ -86,6 +105,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 |---|---|---|---|
 | `h1`–`h5` | `text-high` | `text-inverse-high` | `white` |
 | `body-l`, `body-m`, `body-s`, `caption` | `text-medium` | `text-inverse-medium` | `white` |
+| `quote`, `approach-text` | `text-high` | `text-inverse-high` | `white` |
 | `label-*` | `text-high` | `text-inverse-high` | `white` |
 | `eyebrow` | `primary` | `primary-variant` | `white` |
 | Disabled | `text-low` | `text-inverse-low` | — |
@@ -93,6 +113,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 ### 1.4 Type rules
 
 - MUST use only the roles from 1.2; no custom sizes.
+- **Heading–text pairs (MUST):** text directly under `h1` uses `body-l`; under `h2`–`h5` — `body-m`; under `approach-title` — `approach-text`.
 - MUST NOT skip heading levels for visual size; pick the role, not the size.
 - MUST NOT center-align body text longer than 2 lines. Left-align by default.
 - SHOULD keep line length of `body-l` and `body-m` within 60–80 characters.
@@ -145,7 +166,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | Shape | Pill, radius 50 px |
 | Padding | 24 px horizontal, 10 px vertical (same with or without arrow) |
 | Gap (text → icon) | 10 px |
-| Text | `font-body` 400, 14 / 20 px |
+| Text | `body-s` size (`font-body` 400, 18 px), line height 20 px inside the button |
 | Border (outline variants) | 1.5 px, inside |
 | Height — `sm` | 40 px |
 | Height — `lg` | 52 px |
@@ -209,7 +230,7 @@ Circular button with one icon and no label.
 | Width | Fluid (Figma: 290 px) |
 | Label | `caption` (`font-body` 400, 12 / 20 px), 8 px above the value |
 | Field height | 28 px: text 20 px + gap 8 px + underline |
-| Text | `font-body` 400, 16 / 20 px |
+| Text (value) | `body-s` size (`font-body` 400, 18 px), line height 20 px inside the field |
 | Placeholder | Example of the expected input, e.g. «Full Name»; disappears while typing. MUST NOT replace the label |
 | Underline | 1 px, full width |
 | Marker | 20 × 20 px circle, right edge, vertically centered on the text line |
@@ -252,6 +273,7 @@ Circular button with one icon and no label.
 
 ## 5. Changelog
 
+- 0.23 — 2026-10-18 — Body scale: `body-l` 24 / 36 (with `h1`), `body-m` 20 / 30 (with `h2`–`h5`), `body-s` 18 / 27 (buttons, input value); heading–text pair rule; added `quote` (32 / 48, 300 italic) and the approach pair (`h5` title + `approach-text` 44 / 66, 300 Light); button and input text 18 px with 20 px line height.
 - 0.22 — 2026-10-15 — Body scale rewritten: `body-l` 18 / 28 (default, paragraphs), `body-m` 16 / 24 (cards), new `body-s` 14 / 20 px; Figma Paragraph styles no longer match.
 - 0.21 — 2026-10-15 — Desktop heading scale changed: h1 72 / 80, h2 44 / 52, h3 32 / 40, h4 28 / 36, h5 24 / 32 px (line heights on a 4 px grid); heading weight by size: > 32 px 500 Medium, ≤ 32 px 400 Regular.
 - 0.20 — 2026-10-14 — Label roles (`label-l`, `label-m`, `label-s`) switched from `font-heading` 500 to `font-body` 400 Regular; tags follow.
