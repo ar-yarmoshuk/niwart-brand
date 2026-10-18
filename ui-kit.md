@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.26
+version: 0.28
 updated: 2026-10-18
 owner: Arty
 inherits: 00-core-niwart.md
@@ -121,6 +121,27 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 - **Gradient text:** `background: <gradient-neo>; -webkit-background-clip: text; background-clip: text; color: transparent`. The gradient spans the highlighted words, not the whole line.
 - Numbers in tables SHOULD use tabular figures (`font-variant-numeric: tabular-nums`).
 
+### 1.5 Pair spacing
+
+Vertical space between text roles inside one block. Measured from the bottom of the upper text box to the top of the lower one (line boxes, not glyphs).
+
+| Pair | Desktop | Mobile |
+|---|---|---|
+| `eyebrow` → heading | 16 px | 12 px |
+| `h1` → `body-l` | 32 px | 16 px |
+| `h2` → `body-m` | 24 px | 16 px |
+| `h3` → `body-m` | 16 px | 12 px |
+| `h4` → `body-m` | 16 px | 12 px |
+| `h5` → `body-m` | 12 px | 8 px |
+| `approach-title` → `approach-text` | 16 px | 12 px |
+| paragraph → paragraph (`body-l`) | 24 px | 16 px |
+| paragraph → paragraph (`body-m`) | 16 px | 16 px |
+| text → button | 32 px | 24 px |
+| `quote` → attribution | 16 px | 12 px |
+
+- **Pair spacing (MUST):** use the values from this table; do not set pair spacing by eye.
+- **Proximity (SHOULD):** space inside a block stays smaller than space between blocks.
+
 ## 2. Layout grid
 
 <!-- Из стилей сетки Figma: `Desktop` и `Mobile`. Планшетная сетка и брейкпоинты в Figma не найдены. -->
@@ -136,8 +157,58 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 
 ## 3. Spacing and shape
 
-- **Spacing scale:** TBD. Gutters in section 2 suggest a base of 8 px (8 / 16 / 24 / 32 / 48 / 64) — confirm before use.
+### 3.1 Spacing scale
+
+| Token | Value |
+|---|---|
+| `space-8` | 8 px |
+| `space-12` | 12 px |
+| `space-16` | 16 px |
+| `space-24` | 24 px |
+| `space-32` | 32 px |
+| `space-40` | 40 px |
+| `space-48` | 48 px |
+| `space-64` | 64 px |
+| `space-120` | 120 px |
+
+- **Scale (MUST):** vertical and horizontal spacing uses only these values. Component internals defined in section 4 (button padding, input gaps, tag padding) keep their own values.
+- **Hierarchy (MUST):** pair spacing (1.5) < spacing between elements of a block < spacing between blocks < section padding.
+- **Padding rule (SHOULD):** a block's inner padding is not smaller than the largest gap inside it; padding is equal on all sides (sections: vertical only, horizontal follows the grid).
+
+### 3.2 Block spacing
+
+**Cards**
+
+| What | Desktop | Mobile |
+|---|---|---|
+| Inner padding — regular card | `space-32` | `space-24` |
+| Inner padding — compact card | `space-24` | `space-16` |
+| Tag → heading | `space-16` | `space-12` |
+| Heading → text | pair spacing (1.5) | pair spacing (1.5) |
+| Text → button | `space-24` | `space-24` |
+| Card icon button | in the corner, inset by the card's inner padding | same |
+| Between cards | `space-24` (= grid gutter) | `space-16` |
+
+**Page sections**
+
+| What | Desktop | Mobile |
+|---|---|---|
+| Section vertical padding | `space-120` | `space-64` |
+| Section header (eyebrow + heading + text) → content | `space-64` | `space-40` |
+| Between blocks inside a section | `space-48` | `space-32` |
+
+**Buttons and forms**
+
+| What | Desktop | Mobile |
+|---|---|---|
+| Between buttons in a row | `space-16` | `space-12` (stacked, full width) |
+| Input → input | `space-24` | `space-24` |
+| Last input → submit button | `space-32` | `space-24` |
+
+### 3.3 Radius and shadows
+
 - **Corner radius:** `radius-s` — 8 px (neutral tag, card icon button); buttons and icon buttons — pill / circle (4.2); other radii TBD.
+- **Nested radius (SHOULD):** a rounded element inside a rounded block uses inner radius = outer radius − the block's inner padding (min 0).
 - **Shadows:** `shadow-xs` — `0 0 2px rgba(5, 7, 13, 0.05)` (neutral tag); other shadows TBD.
 
 ## 4. Components
@@ -154,8 +225,8 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 |---|---|
 | Fill | `white` |
 | Border | 1 px `surface-pressed`, inside |
-| Shadow | `shadow-xs` (section 3) |
-| Radius | `radius-s` — 8 px |
+| Shadow | `shadow-xs` (3.3) |
+| Radius | `radius-s` — 8 px (3.3) |
 | Padding | 8 px horizontal, 6 px vertical |
 | Height | 32 px |
 | Gap (icon → text) | 8 px |
@@ -320,6 +391,8 @@ Small square icon button that opens a card or its details («open», «read more
 
 ## 5. Changelog
 
+- 0.28 — 2026-10-18 — Spacing scale defined (`space-8` … `space-120`); block spacing for cards, page sections, buttons and forms; nested radius rule; section 3 split into 3.1–3.3.
+- 0.27 — 2026-10-18 — Added pair spacing (1.5): desktop and mobile gaps for eyebrow, heading–text pairs, approach pair, paragraphs, text → button, quote → attribution.
 - 0.26 — 2026-10-18 — Inputs: gap between the value and the underline 8 → 12 px; field height 32 px; total height 60 / 82 px added.
 - 0.25 — 2026-10-18 — Inputs: label role changed from `caption` to `label-m` (16 / 20, Regular); all label roles stay `font-body` 400 Regular.
 - 0.24 — 2026-10-18 — Neutral tag redesigned from Figma Website (`white` fill, `surface-pressed` border, `shadow-xs`, 8 px radius, optional icon, uppercase `label-s`); added `radius-s` and `shadow-xs`; button arrow is now [`assets/icons/arrow.svg`](assets/icons/arrow.svg); added card icon button (32 px square, `maximize` icon) for cards without a Ghost button; icons stored in `assets/icons/`.
