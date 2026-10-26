@@ -1,8 +1,8 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.29
-updated: 2026-10-18
+version: 0.30
+updated: 2026-10-26
 owner: Arty
 inherits: 00-core-niwart.md
 overrides: core 4 (weights) — `eyebrow` uses Plus Jakarta Sans 700, `approach-text` uses 300 Light, see 1.2
@@ -61,8 +61,8 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | Role | Figma style | Size / line height | Use for |
 |---|---|---|---|
 | `label-l` | `Label/L/Bold` | 18 / 24 px | Navigation |
-| `label-m` | `Label/M/Bold` | 16 / 20 px | UI labels, input labels |
-| `label-s` | `Label/S/Bold` | 14 / 18 px | Tags |
+| `label-m` | `Label/M/Bold` | 16 / 20 px | UI labels, input labels, category tags |
+| `label-s` | `Label/S/Bold` | 14 / 18 px | Neutral tags, statuses |
 
 **Quote**
 
@@ -238,13 +238,24 @@ Vertical space between text roles inside one block. Measured from the bottom of 
 
 | Variant | Fill | Text | Text role |
 |---|---|---|---|
-| Category tag | `accent-yellow`, `accent-teal`, `accent-indigo`, `accent-purple`, `accent-pink` | color from «Text on tag» in core 3.4 | `label-s` |
+| Category tag | `accent-yellow`, `accent-teal`, `accent-indigo`, `accent-purple`, `accent-pink` | color from «Text on tag» in core 3.4 | `label-m` |
 | Status — error / risk | `accent-red` | `text-high` | `label-s` |
 | Status — warning | `accent-orange` | `text-high` | `label-s` |
 | Status — success | `accent-green` | `text-high` | `label-s` |
 
 - MUST follow core section 2: max 3 accent colors per layout, one meaning per color, more categories → neutral tags.
-- Category tags and statuses: padding, height and radius — TBD.
+- Statuses: padding, height and radius — TBD.
+
+**Category tag size**
+
+| Property | Value |
+|---|---|
+| Height | 32 px |
+| Padding | 12 px horizontal, 6 px vertical |
+| Radius | pill (999 px) |
+| Text | `label-m` (`font-body` 400, 16 / 20 px), color from «Text on tag» in core 3.4 |
+
+- Light accent fills (`accent-teal`, `accent-yellow`) have low fill-to-white contrast; use the 32 px size so the tag reads as a shape. Do not switch their text to `white` — fails core 3.5.
 
 ### 4.2 Buttons
 
@@ -391,6 +402,7 @@ Small square icon button that opens a card or its details («open», «read more
 
 ## 5. Changelog
 
+- 0.30 — 2026-10-26 — Category tags: text role `label-s` → `label-m`; size defined (32 px height, 12 / 6 px padding, pill radius); white text on light accents explicitly not allowed (core 3.5). Statuses keep `label-s`.
 - 0.29 — 2026-10-18 — Block spacing: input → input 24 → 48 px (desktop and mobile).
 - 0.28 — 2026-10-18 — Spacing scale defined (`space-8` … `space-120`); block spacing for cards, page sections, buttons and forms; nested radius rule; section 3 split into 3.1–3.3.
 - 0.27 — 2026-10-18 — Added pair spacing (1.5): desktop and mobile gaps for eyebrow, heading–text pairs, approach pair, paragraphs, text → button, quote → attribution.
