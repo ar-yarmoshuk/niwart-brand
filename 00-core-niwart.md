@@ -1,8 +1,8 @@
 ---
 file: 00-core-niwart.md
 brand: Niwart
-version: 1.23
-updated: 2026-10-18
+version: 1.24
+updated: 2026-10-27
 owner: Arty
 source: Figma — Branding, node 622:1633 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=622-1633); gradient — node 712:1291 (https://www.figma.com/design/K1KuS3pyAeyVi8kAVHyfb3/Branding?node-id=712-1291)
 role: Single source of truth. All asset files inherit from this file.
@@ -144,8 +144,8 @@ role: Single source of truth. All asset files inherit from this file.
 
 | Token | Family | Weights allowed | Use for |
 |---|---|---|---|
-| `font-heading` | Plus Jakarta Sans | 500 Medium (> 32 px), 400 Regular (≤ 32 px) | Headlines, big numbers |
-| `font-body` | Plus Jakarta Sans | 400 Regular; 300 Light (approach text only) | Body text, captions, labels, approach text |
+| `font-heading` | Plus Jakarta Sans | 500 Medium | Headlines, big numbers |
+| `font-body` | Plus Jakarta Sans | 400 Regular; 500 Medium (labels only); 300 Light (approach text only) | Body text, captions, labels, approach text |
 | `font-accent` | Plus Jakarta Sans | 300 Light Italic | Text highlights, quotes |
 
 - **Text highlights (MUST):** highlighted words MUST combine `font-accent` and `primary`; on `bg-dark` — `font-accent` and `gradient-neo` (gradient applied to the text). Neither is used alone for a highlight.
@@ -168,7 +168,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, pair and block spacing, layout grid, tags, buttons, inputs | draft (0.29) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, pair and block spacing, layout grid, tags, buttons, inputs | draft (0.30) |
 
 ## 7. Changelog
 
@@ -196,3 +196,4 @@ role: Single source of truth. All asset files inherit from this file.
 - 1.21 — 2026-10-15 — `font-heading` weight by size: 500 Medium above 32 px, 400 Regular up to 32 px.
 - 1.22 — 2026-10-18 — `font-body` allows 300 Light for approach text only; `font-accent` used for quotes.
 - 1.23 — 2026-10-18 — Neutral tags moved from `surface` to `white` with a `surface-pressed` border; `surface` reserved; `white` and `surface-pressed` used for the card icon button.
+- 1.24 — 2026-10-27 — `font-heading` set to 500 Medium at all sizes (was 400 Regular up to 32 px); `font-body` allows 500 Medium for labels only.

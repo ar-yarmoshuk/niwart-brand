@@ -1,8 +1,8 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.29
-updated: 2026-10-18
+version: 0.30
+updated: 2026-10-27
 owner: Arty
 inherits: 00-core-niwart.md
 overrides: core 4 (weights) — `eyebrow` uses Plus Jakarta Sans 700, `approach-text` uses 300 Light, see 1.2
@@ -24,8 +24,8 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 
 | Token (core) | Family | Weight | Web font stack |
 |---|---|---|---|
-| `font-heading` | Plus Jakarta Sans | 500 (> 32 px), 400 (≤ 32 px) | `"Plus Jakarta Sans", Arial, sans-serif` |
-| `font-body` | Plus Jakarta Sans | 400; 300 (`approach-text` only) | `"Plus Jakarta Sans", Arial, sans-serif` |
+| `font-heading` | Plus Jakarta Sans | 500 | `"Plus Jakarta Sans", Arial, sans-serif` |
+| `font-body` | Plus Jakarta Sans | 400; 500 (labels only); 300 (`approach-text` only) | `"Plus Jakarta Sans", Arial, sans-serif` |
 | `font-accent` | Plus Jakarta Sans | 300 italic | `"Plus Jakarta Sans", Arial, sans-serif` |
 
 - **Loading (MUST):** load from Google Fonts only 300, 400, 500, 300 italic and 700 (300 upright — for `approach-text` only, 700 — for `eyebrow` only).
@@ -35,28 +35,29 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 ### 1.2 Type roles
 
 <!-- Размеры и интерлиньяж — из описаний текстовых стилей Figma. Колонка «Figma style» — исходное имя стиля.
-     Десктопные заголовки с 0.21 заданы здесь (72 / 44 / 32 / 28 / 24) и расходятся с Figma; мобильные — по Figma. -->
+     Десктопные заголовки с 0.30 заданы здесь (72 / 48 / 36 / 28 / 24) и расходятся с Figma; мобильные — по Figma. -->
 
-**Headings** — `font-heading`, letter spacing 0. Weight by size: > 32 px — 500 Medium, ≤ 32 px — 400 Regular (core 4).
+**Headings** — `font-heading` 500 Medium (core 4), desktop and mobile. Letter spacing: desktop as in the table, mobile 0.
 
-| Role | Figma style | Desktop size / line height | Desktop weight | Mobile size / line height | Mobile weight |
-|---|---|---|---|---|---|
-| `h1` | `Title/Desktop/H1/Regular`, `Title/Mobile/H1/Regular` | 72 / 80 px | 500 | 32 / 40 px | 400 |
-| `h2` | `Title/Desktop/H2/Regular`, `Title/Mobile/H2` | 44 / 52 px | 500 | 28 / 36 px | 400 |
-| `h3` | `Title/Desktop/H3/Regular`, `Title/Mobile/H3` | 32 / 40 px | 400 | 26 / 32 px | 400 |
-| `h4` | `Title/Desktop/H4`, `Title/Mobile/H4` | 28 / 36 px | 400 | 22 / 28 px | 400 |
-| `h5` | `Title/Desktop/H5`, `Title/Mobile/H5` | 24 / 32 px | 400 | 20 / 28 px | 400 |
+| Role | Figma style | Desktop size / line height | Desktop letter spacing | Mobile size / line height |
+|---|---|---|---|---|
+| `h1` | `Title/Desktop/H1/Regular`, `Title/Mobile/H1/Regular` | 72 / 80 px | −1.5 px | 32 / 40 px |
+| `h2` | `Title/Desktop/H2/Regular`, `Title/Mobile/H2` | 48 / 56 px | −1 px | 28 / 36 px |
+| `h3` | `Title/Desktop/H3/Regular`, `Title/Mobile/H3` | 36 / 44 px | −0.5 px | 26 / 32 px |
+| `h4` | `Title/Desktop/H4`, `Title/Mobile/H4` | 28 / 36 px | 0 | 22 / 28 px |
+| `h5` | `Title/Desktop/H5`, `Title/Mobile/H5` | 24 / 32 px | 0 | 20 / 28 px |
 
-**Body** — `font-body` 400, letter spacing 0, line height 150%, same on desktop and mobile
+**Body** — `font-body` 400, letter spacing 0, line height ≈ 150% rounded to a 4 px grid, same on desktop and mobile
 
 | Role | Figma style | Size / line height | Use for |
 |---|---|---|---|
 | `body-l` | — | 24 / 36 px | Text paired with `h1` |
-| `body-m` | — | 20 / 30 px | Text paired with `h2`–`h5`; default body text |
-| `body-s` | — | 18 / 27 px | Button text, input value |
-| `caption` | `Paragraph/S (caption)` | 12 / 20 px | Captions, footnotes, meta, input helper text |
+| `body-m` | — | 20 / 32 px | Text paired with `h2`–`h5`; default body text |
+| `body-s` | — | 18 / 28 px | Button text, input value |
+| `body-xs` | — | 16 / 24 px | Dense interface text: tables, form descriptions, product UI |
+| `caption` | `Paragraph/S (caption)` | 12 / 16 px | Captions, footnotes, meta, input helper text |
 
-**Labels** — `font-body` (400 Regular), letter spacing 0, same on desktop and mobile
+**Labels** — `font-body` 500 Medium (core 4), letter spacing 0, same on desktop and mobile
 
 | Role | Figma style | Size / line height | Use for |
 |---|---|---|---|
@@ -68,7 +69,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 
 | Role | Font | Weight | Size / line height | Letter spacing |
 |---|---|---|---|---|
-| `quote` | `font-accent` | 300 italic | 32 / 48 px (150%) | 0 |
+| `quote` | `font-accent` | 300 italic | 32 / 44 px | 0 |
 
 - Mobile size: TBD.
 
@@ -77,7 +78,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | Role | Font | Weight | Size / line height | Letter spacing |
 |---|---|---|---|---|
 | `approach-title` | `font-heading` (role `h5`) | as `h5` | as `h5` | 0 |
-| `approach-text` | `font-body` | 300 Light | 44 / 66 px (150%) | 0 |
+| `approach-text` | `font-body` | 300 Light | 44 / 56 px | −0.5 px |
 
 - **Approach pair (MUST):** `approach-text` is used only directly under an `approach-title` (`h5`); an `approach-title` is always followed by `approach-text`. Use the pair to highlight a key statement (approach, principle, value).
 - **Override (core 4):** `approach-text` is the only role allowed to use upright 300 Light.
@@ -94,7 +95,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 - MUST be placed directly above a heading (`h1`–`h4`), max one per heading, max ~4 words.
 - MUST NOT be used as running text or as a replacement for a heading.
 
-<!-- В Figma label-стили называются Bold; в ui-kit лейблы используют `font-body` 400 Regular. -->
+<!-- В Figma label-стили называются Bold; в ui-kit лейблы используют `font-body` 500 Medium. -->
 <!-- В Figma есть стили `Title/*/ExtraLight Italic` (H1–H3) — это старые выделения.
      По core выделение = `font-accent` (300 Light Italic) + `primary` (на `bg-dark` — `gradient-neo`), поэтому отдельные стили не нужны.
      `Title/Mobile/H1/ExtraLight Italic` в Figma имеет 48 / 64 px, больше мобильного H1 — похоже на ошибку. -->
@@ -104,7 +105,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | Role | On `white` / `bg-subtle` | On `bg-dark` | On `primary` |
 |---|---|---|---|
 | `h1`–`h5` | `text-high` | `text-inverse-high` | `white` |
-| `body-l`, `body-m`, `body-s`, `caption` | `text-medium` | `text-inverse-medium` | `white` |
+| `body-l`, `body-m`, `body-s`, `body-xs`, `caption` | `text-medium` | `text-inverse-medium` | `white` |
 | `quote`, `approach-text` | `text-high` | `text-inverse-high` | `white` |
 | `label-*` | `text-high` | `text-inverse-high` | `white` |
 | `eyebrow` | `primary` | `primary-variant` | `white` |
@@ -117,6 +118,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 - MUST NOT skip heading levels for visual size; pick the role, not the size.
 - MUST NOT center-align body text longer than 2 lines. Left-align by default.
 - SHOULD keep line length of `body-l` and `body-m` within 60–80 characters.
+- **Text column (MUST):** on desktop, a column of body text is no wider than 8 grid columns (808 px).
 - Text highlights follow core section 4: `font-accent` + `primary` (on `bg-dark` — `font-accent` + `gradient-neo`), at the size of the surrounding role.
 - **Gradient text:** `background: <gradient-neo>; -webkit-background-clip: text; background-clip: text; color: transparent`. The gradient spans the highlighted words, not the whole line.
 - Numbers in tables SHOULD use tabular figures (`font-variant-numeric: tabular-nums`).
@@ -231,7 +233,7 @@ Vertical space between text roles inside one block. Measured from the bottom of 
 | Height | 32 px |
 | Gap (icon → text) | 8 px |
 | Icon | optional, 15 × 15 px, `text-medium`; e.g. [`assets/icons/code-xml.svg`](assets/icons/code-xml.svg) |
-| Text | `label-s` (`font-body` 400, 14 / 18 px), uppercase, `text-high` |
+| Text | `label-s` (`font-body` 500, 14 / 18 px), uppercase, `text-high` |
 | Use on | `white`, `bg-subtle` |
 
 **Category tags and statuses**
@@ -345,14 +347,14 @@ Small square icon button that opens a card or its details («open», «read more
 |---|---|
 | Style | Underline only, no fill, no border box |
 | Width | Fluid (Figma: 290 px) |
-| Label | `label-m` (`font-body` 400 Regular, 16 / 20 px), 8 px above the value |
+| Label | `label-m` (`font-body` 500 Medium, 16 / 20 px), 8 px above the value |
 | Field height | 32 px: text 20 px + gap 12 px + underline |
-| Total height | 60 px (label 20 + 8 + field 32); 82 px with helper text or error message (+ 2 + 20) |
+| Total height | 60 px (label 20 + 8 + field 32); 78 px with helper text or error message (+ 2 + 16) |
 | Text (value) | `body-s` size (`font-body` 400, 18 px), line height 20 px inside the field |
 | Placeholder | Example of the expected input, e.g. «Full Name»; disappears while typing. MUST NOT replace the label |
 | Underline | 1 px, full width |
 | Marker | 20 × 20 px circle, right edge, vertically centered on the text line |
-| Helper text / error message | `caption` (`font-body` 12 / 20 px), 2 px below the underline; one line; the error message replaces the helper text |
+| Helper text / error message | `caption` (`font-body` 12 / 16 px), 2 px below the underline; one line; the error message replaces the helper text |
 
 **Colors**
 
@@ -390,6 +392,8 @@ Small square icon button that opens a card or its details («open», «read more
 | Tables | TBD |
 
 ## 5. Changelog
+
+- 0.30 — 2026-10-27 — Desktop type review: all headings 500 Medium (core 1.24); h2 44 / 52 → 48 / 56, h3 32 / 40 → 36 / 44; negative letter spacing on desktop h1 (−1.5 px), h2 (−1 px), h3 (−0.5 px); body line heights on a 4 px grid: `body-m` 20 / 32, `body-s` 18 / 28, `caption` 12 / 16 (input total height with helper text 82 → 78 px); new `body-xs` 16 / 24 for dense UI text; labels 500 Medium; `quote` 32 / 44; `approach-text` 44 / 56 with −0.5 px; desktop text column max 8 grid columns.
 
 - 0.29 — 2026-10-18 — Block spacing: input → input 24 → 48 px (desktop and mobile).
 - 0.28 — 2026-10-18 — Spacing scale defined (`space-8` … `space-120`); block spacing for cards, page sections, buttons and forms; nested radius rule; section 3 split into 3.1–3.3.
