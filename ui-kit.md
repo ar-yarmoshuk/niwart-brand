@@ -55,7 +55,7 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 | `body-m` | — | 20 / 32 px | Text paired with `h2`–`h5`; default body text |
 | `body-s` | — | 18 / 28 px | Button text, input value |
 | `body-xs` | — | 16 / 24 px | Dense interface text: tables, form descriptions, product UI |
-| `caption` | `Paragraph/S (caption)` | 12 / 16 px | Captions, footnotes, meta, input helper text |
+| `caption` | `Paragraph/S (caption)` | 12 / 20 px | Captions, footnotes, meta, input helper text |
 
 **Labels** — `font-body` 500 Medium (core 4), letter spacing 0, same on desktop and mobile
 
@@ -349,12 +349,12 @@ Small square icon button that opens a card or its details («open», «read more
 | Width | Fluid (Figma: 290 px) |
 | Label | `label-m` (`font-body` 500 Medium, 16 / 20 px), 8 px above the value |
 | Field height | 32 px: text 20 px + gap 12 px + underline |
-| Total height | 60 px (label 20 + 8 + field 32); 78 px with helper text or error message (+ 2 + 16) |
+| Total height | 60 px (label 20 + 8 + field 32); 82 px with helper text or error message (+ 2 + 20) |
 | Text (value) | `body-s` size (`font-body` 400, 18 px), line height 20 px inside the field |
 | Placeholder | Example of the expected input, e.g. «Full Name»; disappears while typing. MUST NOT replace the label |
 | Underline | 1 px, full width |
 | Marker | 20 × 20 px circle, right edge, vertically centered on the text line |
-| Helper text / error message | `caption` (`font-body` 12 / 16 px), 2 px below the underline; one line; the error message replaces the helper text |
+| Helper text / error message | `caption` (`font-body` 12 / 20 px), 2 px below the underline; one line; the error message replaces the helper text |
 
 **Colors**
 
@@ -393,7 +393,7 @@ Small square icon button that opens a card or its details («open», «read more
 
 ## 5. Changelog
 
-- 0.30 — 2026-10-27 — Desktop type review: all headings 500 Medium (core 1.24); h2 44 / 52 → 48 / 56, h3 32 / 40 → 36 / 44; negative letter spacing on desktop h1 (−1.5 px), h2 (−1 px), h3 (−0.5 px); body line heights on a 4 px grid: `body-m` 20 / 32, `body-s` 18 / 28, `caption` 12 / 16 (input total height with helper text 82 → 78 px); new `body-xs` 16 / 24 for dense UI text; labels 500 Medium; `quote` 32 / 44; `approach-text` 44 / 56 with −0.5 px; desktop text column max 8 grid columns.
+- 0.30 — 2026-10-27 — Desktop type review: all headings 500 Medium (core 1.24); h2 44 / 52 → 48 / 56, h3 32 / 40 → 36 / 44; negative letter spacing on desktop h1 (−1.5 px), h2 (−1 px), h3 (−0.5 px); body line heights on a 4 px grid: `body-m` 20 / 32, `body-s` 18 / 28; new `body-xs` 16 / 24 for dense UI text; labels 500 Medium; `quote` 32 / 44; `approach-text` 44 / 56 with −0.5 px; desktop text column max 8 grid columns.
 
 - 0.29 — 2026-10-18 — Block spacing: input → input 24 → 48 px (desktop and mobile).
 - 0.28 — 2026-10-18 — Spacing scale defined (`space-8` … `space-120`); block spacing for cards, page sections, buttons and forms; nested radius rule; section 3 split into 3.1–3.3.
