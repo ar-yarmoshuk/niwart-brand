@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.30
+version: 0.31
 updated: 2026-10-27
 owner: Arty
 inherits: 00-core-niwart.md
@@ -35,27 +35,29 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 ### 1.2 Type roles
 
 <!-- Размеры и интерлиньяж — из описаний текстовых стилей Figma. Колонка «Figma style» — исходное имя стиля.
-     Десктопные заголовки с 0.30 заданы здесь (72 / 48 / 36 / 28 / 24) и расходятся с Figma; мобильные — по Figma. -->
+     Десктопные заголовки с 0.30 и мобильные с 0.31 заданы здесь и расходятся с Figma. -->
 
-**Headings** — `font-heading` 500 Medium (core 4), desktop and mobile. Letter spacing: desktop as in the table, mobile 0.
+**Headings** — `font-heading` 500 Medium (core 4), desktop and mobile.
 
-| Role | Figma style | Desktop size / line height | Desktop letter spacing | Mobile size / line height |
+| Role | Figma style | Desktop size / line height | Desktop letter spacing | Mobile size / line height | Mobile letter spacing |
+|---|---|---|---|---|---|
+| `h1` | `Title/Desktop/H1/Regular`, `Title/Mobile/H1/Regular` | 72 / 80 px | −1.5 px | 40 / 48 px | −0.5 px |
+| `h2` | `Title/Desktop/H2/Regular`, `Title/Mobile/H2` | 48 / 56 px | −1 px | 32 / 40 px | −0.5 px |
+| `h3` | `Title/Desktop/H3/Regular`, `Title/Mobile/H3` | 36 / 44 px | −0.5 px | 28 / 36 px | 0 |
+| `h4` | `Title/Desktop/H4`, `Title/Mobile/H4` | 28 / 36 px | 0 | 24 / 32 px | 0 |
+| `h5` | `Title/Desktop/H5`, `Title/Mobile/H5` | 24 / 32 px | 0 | 20 / 28 px | 0 |
+
+**Body** — `font-body` 400, letter spacing 0, line height ≈ 150% rounded to a 4 px grid
+
+| Role | Figma style | Desktop size / line height | Mobile size / line height | Use for |
 |---|---|---|---|---|
-| `h1` | `Title/Desktop/H1/Regular`, `Title/Mobile/H1/Regular` | 72 / 80 px | −1.5 px | 32 / 40 px |
-| `h2` | `Title/Desktop/H2/Regular`, `Title/Mobile/H2` | 48 / 56 px | −1 px | 28 / 36 px |
-| `h3` | `Title/Desktop/H3/Regular`, `Title/Mobile/H3` | 36 / 44 px | −0.5 px | 26 / 32 px |
-| `h4` | `Title/Desktop/H4`, `Title/Mobile/H4` | 28 / 36 px | 0 | 22 / 28 px |
-| `h5` | `Title/Desktop/H5`, `Title/Mobile/H5` | 24 / 32 px | 0 | 20 / 28 px |
+| `body-l` | — | 24 / 36 px | 20 / 32 px | Text paired with `h1` |
+| `body-m` | — | 20 / 32 px | 18 / 28 px | Text paired with `h2`–`h5`; default body text |
+| `body-s` | — | 18 / 28 px | 16 / 24 px | Button text, input value |
+| `body-xs` | — | 16 / 24 px | 14 / 20 px | Dense interface text: tables, form descriptions, product UI |
+| `caption` | `Paragraph/S (caption)` | 12 / 20 px | 12 / 20 px | Captions, footnotes, meta, input helper text |
 
-**Body** — `font-body` 400, letter spacing 0, line height ≈ 150% rounded to a 4 px grid, same on desktop and mobile
-
-| Role | Figma style | Size / line height | Use for |
-|---|---|---|---|
-| `body-l` | — | 24 / 36 px | Text paired with `h1` |
-| `body-m` | — | 20 / 32 px | Text paired with `h2`–`h5`; default body text |
-| `body-s` | — | 18 / 28 px | Button text, input value |
-| `body-xs` | — | 16 / 24 px | Dense interface text: tables, form descriptions, product UI |
-| `caption` | `Paragraph/S (caption)` | 12 / 20 px | Captions, footnotes, meta, input helper text |
+- **Minimum (MUST):** input value text is never below 16 px on mobile (smaller text makes iOS zoom in on focus).
 
 **Labels** — `font-body` 500 Medium (core 4), letter spacing 0, same on desktop and mobile
 
@@ -67,22 +69,19 @@ source: Figma — Branding library (text styles, grid styles); Design Library (i
 
 **Quote**
 
-| Role | Font | Weight | Size / line height | Letter spacing |
-|---|---|---|---|---|
-| `quote` | `font-accent` | 300 italic | 32 / 44 px | 0 |
-
-- Mobile size: TBD.
+| Role | Font | Weight | Desktop size / line height | Mobile size / line height | Letter spacing |
+|---|---|---|---|---|---|
+| `quote` | `font-accent` | 300 italic | 32 / 44 px | 24 / 32 px | 0 |
 
 **Approach** — a highlight pair: `h5` title + large light description
 
-| Role | Font | Weight | Size / line height | Letter spacing |
-|---|---|---|---|---|
-| `approach-title` | `font-heading` (role `h5`) | as `h5` | as `h5` | 0 |
-| `approach-text` | `font-body` | 300 Light | 44 / 56 px | −0.5 px |
+| Role | Font | Weight | Desktop size / line height | Desktop letter spacing | Mobile size / line height | Mobile letter spacing |
+|---|---|---|---|---|---|---|
+| `approach-title` | `font-heading` (role `h5`) | as `h5` | as `h5` | 0 | as `h5` | 0 |
+| `approach-text` | `font-body` | 300 Light | 44 / 56 px | −0.5 px | 28 / 36 px | 0 |
 
 - **Approach pair (MUST):** `approach-text` is used only directly under an `approach-title` (`h5`); an `approach-title` is always followed by `approach-text`. Use the pair to highlight a key statement (approach, principle, value).
 - **Override (core 4):** `approach-text` is the only role allowed to use upright 300 Light.
-- Mobile size of `approach-text`: TBD.
 
 **Eyebrow** — short uppercase label above a heading; same on desktop and mobile
 
@@ -259,7 +258,7 @@ Vertical space between text roles inside one block. Measured from the bottom of 
 | Shape | Pill, radius 50 px |
 | Padding | 24 px horizontal, 10 px vertical (same with or without arrow) |
 | Gap (text → icon) | 10 px |
-| Text | `body-s` size (`font-body` 400, 18 px), line height 20 px inside the button |
+| Text | `body-s` size (`font-body` 400; 18 px desktop, 16 px mobile), line height 20 px inside the button |
 | Border (outline variants) | 1.5 px, inside |
 | Height — `sm` | 40 px |
 | Height — `lg` | 52 px |
@@ -350,7 +349,7 @@ Small square icon button that opens a card or its details («open», «read more
 | Label | `label-m` (`font-body` 500 Medium, 16 / 20 px), 8 px above the value |
 | Field height | 32 px: text 20 px + gap 12 px + underline |
 | Total height | 60 px (label 20 + 8 + field 32); 82 px with helper text or error message (+ 2 + 20) |
-| Text (value) | `body-s` size (`font-body` 400, 18 px), line height 20 px inside the field |
+| Text (value) | `body-s` size (`font-body` 400; 18 px desktop, 16 px mobile), line height 20 px inside the field |
 | Placeholder | Example of the expected input, e.g. «Full Name»; disappears while typing. MUST NOT replace the label |
 | Underline | 1 px, full width |
 | Marker | 20 × 20 px circle, right edge, vertically centered on the text line |
@@ -392,6 +391,8 @@ Small square icon button that opens a card or its details («open», «read more
 | Tables | TBD |
 
 ## 5. Changelog
+
+- 0.31 — 2026-10-27 — Mobile type scale rebuilt from the 0.30 desktop scale: h1 40 / 48, h2 32 / 40, h3 28 / 36, h4 24 / 32, h5 20 / 28, −0.5 px on h1–h2; body gets mobile sizes: `body-l` 20 / 32, `body-m` 18 / 28, `body-s` 16 / 24 (button text and input value 16 px on mobile), `body-xs` 14 / 20, `caption` unchanged; `quote` mobile 24 / 32; `approach-text` mobile 28 / 36; 16 px minimum for input value on mobile.
 
 - 0.30 — 2026-10-27 — Desktop type review: all headings 500 Medium (core 1.24); h2 44 / 52 → 48 / 56, h3 32 / 40 → 36 / 44; negative letter spacing on desktop h1 (−1.5 px), h2 (−1 px), h3 (−0.5 px); body line heights on a 4 px grid: `body-m` 20 / 32, `body-s` 18 / 28; new `body-xs` 16 / 24 for dense UI text; labels 500 Medium; `quote` 32 / 44; `approach-text` 44 / 56 with −0.5 px; desktop text column max 8 grid columns.
 
