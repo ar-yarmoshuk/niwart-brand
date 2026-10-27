@@ -1,7 +1,7 @@
 ---
 file: ui-kit.md
 brand: Niwart
-version: 0.31
+version: 0.32
 updated: 2026-10-27
 owner: Arty
 inherits: 00-core-niwart.md
@@ -237,15 +237,19 @@ Vertical space between text roles inside one block. Measured from the bottom of 
 
 **Category tags and statuses**
 
+<!-- Размер категорийного тега: Figma Website, «Case study tags — readability test», вариант B, node 8448:303
+     (https://www.figma.com/design/D60XCEWqi6XfVQJy7aFK2K/Website?node-id=8448-303). Статусы в тесте не проверялись. -->
+
 | Variant | Fill | Text | Text role |
 |---|---|---|---|
-| Category tag | `accent-yellow`, `accent-teal`, `accent-indigo`, `accent-purple`, `accent-pink` | color from «Text on tag» in core 3.4 | `label-s` |
+| Category tag | `accent-yellow`, `accent-teal`, `accent-indigo`, `accent-purple`, `accent-pink` | color from «Text on tag» in core 3.4 | `label-m` |
 | Status — error / risk | `accent-red` | `text-high` | `label-s` |
 | Status — warning | `accent-orange` | `text-high` | `label-s` |
 | Status — success | `accent-green` | `text-high` | `label-s` |
 
 - MUST follow core section 2: max 3 accent colors per layout, one meaning per color, more categories → neutral tags.
-- Category tags and statuses: padding, height and radius — TBD.
+- **Category tag size:** text `label-m` (16 / 20 px), sentence case; padding 12 px horizontal, 6 px vertical; height 32 px; radius pill. Same on desktop and mobile.
+- Statuses: padding, height and radius — TBD.
 
 ### 4.2 Buttons
 
@@ -391,6 +395,8 @@ Small square icon button that opens a card or its details («open», «read more
 | Tables | TBD |
 
 ## 5. Changelog
+
+- 0.32 — 2026-10-27 — Category tags: text role `label-s` → `label-m` (16 / 20); size defined from Figma Website readability test, option B (node 8448:303): padding 12 / 6 px, height 32 px, pill radius. Statuses unchanged.
 
 - 0.31 — 2026-10-27 — Mobile type scale rebuilt from the 0.30 desktop scale: h1 40 / 48, h2 32 / 40, h3 28 / 36, h4 24 / 32, h5 20 / 28, −0.5 px on h1–h2; body gets mobile sizes: `body-l` 20 / 32, `body-m` 18 / 28, `body-s` 16 / 24 (button text and input value 16 px on mobile), `body-xs` 14 / 20, `caption` unchanged; `quote` mobile 24 / 32; `approach-text` mobile 28 / 36; 16 px minimum for input value on mobile.
 

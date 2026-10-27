@@ -168,7 +168,7 @@ role: Single source of truth. All asset files inherit from this file.
 
 | File | Covers | Status |
 |---|---|---|
-| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, pair and block spacing, layout grid, tags, buttons, inputs | draft (0.31) |
+| [`ui-kit.md`](ui-kit.md) | UI kit: type roles, pair and block spacing, layout grid, tags, buttons, inputs | draft (0.32) |
 
 ## 7. Changelog
 
